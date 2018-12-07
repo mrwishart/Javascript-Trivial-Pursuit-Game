@@ -27,3 +27,4 @@ Expand game to be for 2-4 players.
 Move round board in a multidirectional way - giving choice of questions.
 Add 'pie squares' which give players pie if they answer the  question correctly, a correct answer on another square will let player roll again.
 Animation and sound.
+* PW - Make gameboard dynamic
