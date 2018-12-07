@@ -1,3 +1,7 @@
+// Convert subjects to an array of objects with key of topic and value of corresponding api code.
+
+// [{category: 'history', apiCode: 23}, .....]
+
 const subjects = ["history", "geography", "sports", "art", "general-knowledge", "entertainment"];
 
 const boardSpaces = {
