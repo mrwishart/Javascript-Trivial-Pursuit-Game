@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha src/specs",
+    "test": "mocha src/testing",
     "build": "webpack -w"
   },
   "author": "",
