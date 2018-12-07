@@ -7,7 +7,7 @@ const RequestHelper = function (url) {
 RequestHelper.prototype.get = function () {
   return fetch(this.url)
     .then(res => res.text())
-    .catch(PubSub.publish("SystemView:UpdateMessage", "query-failed"));
+    .catch(err => console.error(err));
 };
 
 module.exports = RequestHelper;
