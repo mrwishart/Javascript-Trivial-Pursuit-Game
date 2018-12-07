@@ -42,5 +42,7 @@ end
 
 randomiseAnswers
   array []
-  this.answers = randomised answers 
+  this.answers = randomised answers
 end
+
+*/
