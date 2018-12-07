@@ -19,6 +19,7 @@ bindEvents
 
   Subs to Player:question-category (playerID, categoryObject)
     Get question from API, using category.apiCode
+    .then randomiseAnswers
     .then publishes Question:question-ready
     .catch
   end
@@ -37,4 +38,9 @@ end
 
 checkAnswer(chosenAnswer)
   returns whether chosen answer = actual answer
+end
+
+randomiseAnswers
+  array []
+  this.answers = randomised answers 
 end

@@ -28,7 +28,7 @@ end
 move(diceroll)
   add dice roll to position
   logic for rapping, yo
-  Pubs Player:new-space (sends playedID, pie, new position)
+  Pubs Player:new-position (sends playedID, pie, new position)
 end
 
 
