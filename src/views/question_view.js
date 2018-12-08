@@ -26,6 +26,7 @@ QuestionView.prototype.displayAnswers = function (answers) {
   const answerList = document.createElement('select');
   const intro = document.createElement('option')
   intro.disabled = true;
+  intro.defaultSelected = true;
   intro.textContent = "Pick Answer"
   answerList.appendChild(intro)
   answers.forEach((answer) => {
