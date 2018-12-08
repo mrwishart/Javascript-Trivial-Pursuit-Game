@@ -1,5 +1,5 @@
-const BoardSpaces = require('./board_spaces.js');
-const PubSub = require('../helpers/pub_sub.js');
+const Board = require('./board.js');
+const PubSub = require('../helpers/pub_sub.js')
 
 const Player = function (playerID) {
   this.playerID = playerID;
@@ -13,7 +13,6 @@ Player.prototype.bindEvents = function () {
     PubSub.publish('Player:roll-result', diceroll);
     this.move(diceroll);
     const categoryObject = this.getCategoryObject();
-    console.log(categoryObject);
     categoryObject['playerID'] = this.playerID;
     PubSub.publish('Player:question-category', categoryObject);
   })
@@ -25,9 +24,9 @@ Player.prototype.bindEvents = function () {
 };
 
 Player.prototype.move = function (diceroll) {
-  const boardSpaces = new BoardSpaces();
-  // const noOfSquares = boardSpaces['boardSpaces'].keys().length;
-  this.position = (this.position + diceroll) % 30;
+  const board = new Board();
+  const noOfSquares = Object.keys(board.boardSpaces).length;
+  this.position = (this.position + diceroll) % noOfSquares;
 
   PubSub.publish('Player:new-position', {
     playerID: this.playerID,
@@ -37,18 +36,18 @@ Player.prototype.move = function (diceroll) {
 };
 
 Player.prototype.getCategoryObject = function () {
-  const boardSpaces = new BoardSpaces();
+  const board = new Board();
 
-  return boardSpaces[this.position];
+  return board.boardSpaces[this.position];
 };
 
 Player.prototype.getPie = function (category) {
   this.pie[category] = true;
-  if (checkWin()) {/* do some win state stuff*/};
+  if (this.checkWin()) {/* do some win state stuff*/};
 };
 
 Player.prototype.checkWin = function () {
-  return this.pie.keys() >= 4;
+  return Object.keys(this.pie).length >= 4;
 };
 
 module.exports = Player;
