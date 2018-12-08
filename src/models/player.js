@@ -8,7 +8,7 @@ const Player = function (playerID) {
     "history": false,
     "geography": false,
     "sports": false,
-    "art": false,
+    "science": false,
     "general-knowledge": false,
     "entertainment": false
   };
@@ -31,6 +31,7 @@ Player.prototype.bindEvents = function () {
 Player.prototype.move = function (diceroll) {
   const noOfSquares = boardSpaces.keys().length;
   this.position = (this.position + diceroll) % noOfSquares;
+
   PubSub.publish('Player:new-position', {
     playerID: this.playerID,
     position: this.position,
