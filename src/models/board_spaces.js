@@ -17,7 +17,7 @@ const subjects = [
   {category: "general-knowledge",
     apiCode: 9},
   {category: "entertainment",
-    apiCode: entertainmentApis[Math.ceil(Math.random() * 4)]},
+    apiCode: entertainmentApis[Math.floor(Math.random() * 4)]},
                 ];
 
 
