@@ -4,14 +4,14 @@ const RollView = function () {
 }
 
 RollView.prototype.bindEvents = function () {
-  PubSub.subsribe('Game:current-player', (evt) => {
+  PubSub.subscribe('Game:current-player', (evt) => {
     const playerId = evt.detail;
     this.render(playerId)
   })
 };
 
 RollView.prototype.render = function (playerId) {
-  const parentElement = document.querySelecor('#display-view');
+  const parentElement = document.querySelector('#display-view');
 
   const rollContainer = document.createElement('div');
   rollContainer.classList.add('roll-container');

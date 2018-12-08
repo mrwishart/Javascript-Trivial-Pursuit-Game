@@ -1,5 +1,5 @@
 const BoardSpaces = require('./board_spaces.js');
-const PubSub = require('../helpers/pub_sub.js')
+const PubSub = require('../helpers/pub_sub.js');
 
 const Player = function (playerID) {
   this.playerID = playerID;
@@ -11,8 +11,9 @@ Player.prototype.bindEvents = function () {
   PubSub.subscribe(`DiceP${this.playerID}:roll-result`, (event) => {
     const diceroll = event.detail;
     PubSub.publish('Player:roll-result', diceroll);
-    move(diceroll);
-    const categoryObject = getCategoryObject();
+    this.move(diceroll);
+    const categoryObject = this.getCategoryObject();
+    console.log(categoryObject);
     categoryObject['playerID'] = this.playerID;
     PubSub.publish('Player:question-category', categoryObject);
   })

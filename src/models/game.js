@@ -24,7 +24,7 @@ Game.prototype.bindEvents = function () {
     const answerCorrect = evt.detail.answerCorrect;
     if (answerCorrect) {this.passTurn()};
   });
-  PubSub.publish('Player:player-ready', this.currentPlayer);
+  PubSub.publish('Game:current-player', this.currentPlayer);
 };
 
 Game.prototype.passTurn = function () {
