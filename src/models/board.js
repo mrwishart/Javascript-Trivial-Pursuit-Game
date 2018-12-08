@@ -1,6 +1,4 @@
-// Convert this.subjects to an array of objects with key of topic and value of corresponding api code.
 
-// [{category: 'history', apiCode: 23}, .....]
 
 const Board  = function () {
   this.entertainmentApis = [14, 10, 11, 12];

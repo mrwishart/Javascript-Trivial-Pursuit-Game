@@ -3,6 +3,7 @@ const Dice = require("./models/dice.js");
 const Game = require('./models/game.js');
 const Player = require('./models/player.js');
 const BoardView = require('./views/board_view.js');
+const Question = require('./models/question.js');
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Javascript loaded");
@@ -18,12 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
   player1.bindEvents();
   player2.bindEvents();
 
+    const question = new Question();
+  question.bindEvents();
+
   const boardElement = document.querySelector('.board-container');
   const boardView = new BoardView(boardElement);
   boardView.bindEvents();
   boardView.setupStartPositions();
 
-
+  
 
   const game = new Game();
   game.bindEvents();
