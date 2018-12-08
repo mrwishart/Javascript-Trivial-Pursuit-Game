@@ -24,8 +24,9 @@ Player.prototype.bindEvents = function () {
 };
 
 Player.prototype.move = function (diceroll) {
-  const noOfSquares = boardSpaces.keys().length;
-  this.position = (this.position + diceroll) % noOfSquares;
+  const boardSpaces = new BoardSpaces();
+  // const noOfSquares = boardSpaces['boardSpaces'].keys().length;
+  this.position = (this.position + diceroll) % 30;
 
   PubSub.publish('Player:new-position', {
     playerID: this.playerID,
@@ -42,7 +43,7 @@ Player.prototype.getCategoryObject = function () {
 
 Player.prototype.getPie = function (category) {
   this.pie[category] = true;
-  if checkWin() {/* do some win state stuff*/};
+  if (checkWin()) {/* do some win state stuff*/};
 };
 
 Player.prototype.checkWin = function () {
@@ -65,38 +66,38 @@ Methods:
 
 bindEvents
 
-  Subs to DiceP${ID}:roll-result (dynamically created by playedID)
-    move(diceroll)
-    get-category(position)
-    Pubs 'Player:question-category' (sends playerID, categoryObject)
-  end
+Subs to DiceP${ID}:roll-result (dynamically created by playedID)
+move(diceroll)
+get-category(position)
+Pubs 'Player:question-category' (sends playerID, categoryObject)
+end
 
-  Sub to QuestionP${ID}:answer-correct
-    getPie
-  end
+Sub to QuestionP${ID}:answer-correct
+getPie
+end
 
 end
 
 
 move(diceroll)
-  add dice roll to position
-  logic for rapping, yo
-  Pubs Player:new-position (sends playedID, pie, new position)
+add dice roll to position
+logic for rapping, yo
+Pubs Player:new-position (sends playedID, pie, new position)
 end
 
 
 getCategory(position)
-  queries boardspaces[position]
-  returns categoryObject
+queries boardspaces[position]
+returns categoryObject
 end
 
 getPie(category name)
-  adds slice to player via category name
-  checks to see if player has won - checkWin()
+adds slice to player via category name
+checks to see if player has won - checkWin()
 end
 
 checkWin()
-  counts slices of pie, returns true if >= 4
+counts slices of pie, returns true if >= 4
 end
 
 */
