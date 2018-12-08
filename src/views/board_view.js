@@ -26,8 +26,15 @@ BoardView.prototype.render = function (playerId, position, pie) {
   pieceView.render();
 };
 
+BoardView.prototype.setupStartPositions = function () {
+  const emptyPiece = {};
+  const startingPosition = document.querySelector('#box0');
+  const pieceOne = new PieceView(1, startingPosition, emptyPiece);
+  const pieceTwo = new PieceView(2, startingPosition, emptyPiece);
+  pieceOne.render();
+  pieceTwo.render();
+};
 
-//start positions
 module.exports = BoardView;
 
 /*
