@@ -2,6 +2,8 @@
 
 // [{category: 'history', apiCode: 23}, .....]
 
+const entertainmentApis = [14, 10, 11, 12];
+
 const subjects = [
 
   {category: "history",
@@ -10,15 +12,18 @@ const subjects = [
     apiCode: 22},
   {category: "sports",
     apiCode: 21},
-  {category: "art",
-    apiCode: 25},
-  {category: "generalKnowledge",
+  {category: "science",
+    apiCode: 17},
+  {category: "general-knowledge",
     apiCode: 9},
   {category: "entertainment",
-    apiCode: 10},
+    apiCode: entertainmentApis[Math.ceil(Math.random() * 4)]},
                 ];
 
-const
+
+
+
+
 
 const boardSpaces = {
   0: subjects[0],
