@@ -17,6 +17,7 @@ Question.prototype.bindEvents = function () {
     const apiCode = categoryObject.apiCode;
     this.playerID = categoryObject.playerID;
     const url = `https://opentdb.com/api.php?amount=1&category=${apiCode}&difficulty=medium&type=multiple`
+    console.log(url);
     const request = new RequestHelper(url);
     request.get()
       .then((data) => {this.addQuestionInfo(data.results)})
@@ -46,6 +47,8 @@ Question.prototype.addQuestionInfo = function (apiInfo) {
   this.question = apiInfo.question;
   this.correctAnswer = apiInfo['correct_answer'];
   this.answersArray = apiInfo['incorrect_answers'];
+  console.log(apiInfo['incorrect_answers']);
+  console.log(this.answersArray);
   this.answersArray.push(this.correctAnswer);
   // Need to randomise answers
 };
@@ -58,7 +61,7 @@ Question.prototype.setUpQuestion = function () {
 };
 
 Question.prototype.randomiseAnswers = function () {
-  
+
 };
 
 module.exports = Question;
