@@ -2,7 +2,23 @@
 
 // [{category: 'history', apiCode: 23}, .....]
 
-const subjects = ["history", "geography", "sports", "art", "general-knowledge", "entertainment"];
+const subjects = [
+
+  {category: "history",
+    apiCode: 23},
+  {category: "geography",
+    apiCode: 22},
+  {category: "sports",
+    apiCode: 21},
+  {category: "art",
+    apiCode: 25},
+  {category: "generalKnowledge",
+    apiCode: 9},
+  {category: "entertainment",
+    apiCode: 10},
+                ];
+
+const
 
 const boardSpaces = {
   0: subjects[0],
