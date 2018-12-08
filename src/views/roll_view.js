@@ -28,9 +28,7 @@ RollView.prototype.render = function (playerId) {
   rollButton.addEventListener('click', (evt) => {
     PubSub.subscribe('Player:roll-result', (evt) => {
       const numRolled = evt.detail;
-      let numRolledElement = null;
-      numRolledElement = document.createElement('p');
-      numRolledElement.classList.add('num-rolled-para');
+      const numRolledElement = document.createElement('p');
       numRolledElement.textContent = `${numRolled}`;
       rollContainer.appendChild(numRolledElement);
     });
@@ -38,4 +36,4 @@ RollView.prototype.render = function (playerId) {
   });
 }
 
-module.exports = RollView;
+  module.exports = RollView;
