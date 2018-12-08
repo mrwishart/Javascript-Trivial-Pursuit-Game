@@ -20,7 +20,7 @@ Question.prototype.bindEvents = function () {
     console.log(url);
     const request = new RequestHelper(url);
     request.get()
-      .then((data) => {this.addQuestionInfo(data.results)})
+      .then((data) => {this.addQuestionInfo(data.results[0])})
       .then(() => {return this.setUpQuestion();})
       .then((result) => {PubSub.publish("Question:question-ready", result);})
       .catch((error) => {console.error(error);})
@@ -47,8 +47,6 @@ Question.prototype.addQuestionInfo = function (apiInfo) {
   this.question = apiInfo.question;
   this.correctAnswer = apiInfo['correct_answer'];
   this.answersArray = apiInfo['incorrect_answers'];
-  console.log(apiInfo['incorrect_answers']);
-  console.log(this.answersArray);
   this.answersArray.push(this.correctAnswer);
   // Need to randomise answers
 };
