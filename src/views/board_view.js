@@ -19,7 +19,6 @@ BoardView.prototype.bindEvents = function () {
 BoardView.prototype.render = function (playerId, position, pie) {
   const oldPiece = document.querySelector(`#player-${playerId}-piece`);
   oldPiece.parentNode.removeChild(oldPiece);
-
   const htmlPosition = document.querySelector(`#box${position}`)
 
   const pieceView = new PieceView(playerId, htmlPosition, pie);
@@ -29,8 +28,9 @@ BoardView.prototype.render = function (playerId, position, pie) {
 BoardView.prototype.setupStartPositions = function () {
   const emptyPiece = {};
   const startingPosition = document.querySelector('#box0');
+  const startingPosition2 = document.querySelector('#box1');
   const pieceOne = new PieceView(1, startingPosition, emptyPiece);
-  const pieceTwo = new PieceView(2, startingPosition, emptyPiece);
+  const pieceTwo = new PieceView(2, startingPosition2, emptyPiece);
   pieceOne.render();
   pieceTwo.render();
 };

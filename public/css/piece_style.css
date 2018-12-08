@@ -1,0 +1,25 @@
+#player-1-piece, #player-2-piece {
+  height: 70%;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#player-1-piece {
+  background-color: black;
+}
+
+#player-2-piece {
+  background-color: white;
+}
+
+.empty-slot {
+  background-color: grey;
+}
+
+.slot-1, .slot-2, .slot-3, .slot-4 {
+  width: 40%;
+  height: 40%;
+}
