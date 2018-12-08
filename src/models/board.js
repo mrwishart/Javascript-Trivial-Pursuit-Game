@@ -2,7 +2,7 @@
 
 // [{category: 'history', apiCode: 23}, .....]
 
-const BoardSpaces  = function () {
+const Board  = function () {
   this.entertainmentApis = [14, 10, 11, 12];
   this.subjects = [
 
@@ -111,4 +111,4 @@ const BoardSpaces  = function () {
 //   29: this.subjects[5]
 // }
 
-module.exports = BoardSpaces;
+module.exports = Board;
