@@ -3,7 +3,7 @@
 // [{category: 'history', apiCode: 23}, .....]
 
 const BoardSpaces  = function () {
-  this.entertainmentApis = [14, 10, 11, 12],
+  this.entertainmentApis = [14, 10, 11, 12];
   this.subjects = [
 
     {category: "history",
@@ -18,7 +18,7 @@ const BoardSpaces  = function () {
       apiCode: 9},
     {category: "entertainment",
       apiCode: this.entertainmentApis[Math.floor(Math.random() * 4)]},
-                  ];
+    ];
 
   this.boardSpaces = {
     0: subjects[0],
@@ -51,7 +51,7 @@ const BoardSpaces  = function () {
     27: subjects[3],
     28: subjects[4],
     29: subjects[5]
-  }
+  };
 
 }
 
