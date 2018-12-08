@@ -1,7 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const RollView = function (element) {
-  this.element = element;
+const RollView = function () {
 }
 
 RollView.prototype.bindEvents = function () {
