@@ -28,11 +28,11 @@ Player.prototype.move = function (diceroll) {
   const noOfSquares = Object.keys(board.boardSpaces).length;
   this.position = (this.position + diceroll) % noOfSquares;
 
-  PubSub.publish('Player:new-position', {
-    playerID: this.playerID,
-    position: this.position,
-    pie: this.pie
-  });
+  // PubSub.publish('Player:new-position', {
+  //   playerID: this.playerID,
+  //   position: this.position,
+  //   pie: this.pie
+  // });
 };
 
 Player.prototype.getCategoryObject = function () {
@@ -43,11 +43,11 @@ Player.prototype.getCategoryObject = function () {
 
 Player.prototype.getPie = function (category) {
   this.pie[category] = true;
-  if (checkWin()) {/* do some win state stuff*/};
+  if (this.checkWin()) {/* do some win state stuff*/};
 };
 
 Player.prototype.checkWin = function () {
-  return this.pie.keys() >= 4;
+  return Object.keys(this.pie).length >= 4;
 };
 
 module.exports = Player;

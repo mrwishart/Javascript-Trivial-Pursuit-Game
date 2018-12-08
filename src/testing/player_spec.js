@@ -16,6 +16,21 @@ describe('Player', function () {
     const actual = player.position;
     assert.strictEqual(actual, 0);
   })
-
+  it('should get correct category', () => {
+    const actual = player.getCategoryObject().category;
+    assert.strictEqual(actual, 'history');
+  })
+  it('should get category after a move', () => {
+    player.move(3)
+    const actual = player.getCategoryObject().category;
+    assert.strictEqual(actual, 'science');
+  })
+  it('should get pie piece', () => {
+    player.getPie('science')
+    const expected = {'science': true};
+    const actual = player.pie;
+    assert.deepStrictEqual(actual, expected);
+  })
+  
 
 });
