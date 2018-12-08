@@ -1,4 +1,4 @@
-const BoardSpaces = require('./board_spaces.js');
+const Board = require('./board.js');
 const PubSub = require('../helpers/pub_sub.js')
 
 const Player = function (playerID) {
@@ -24,9 +24,9 @@ Player.prototype.bindEvents = function () {
 };
 
 Player.prototype.move = function (diceroll) {
-  const boardSpaces = new BoardSpaces();
-  // const noOfSquares = boardSpaces['boardSpaces'].keys().length;
-  this.position = (this.position + diceroll) % 30;
+  const board = new Board();
+  const noOfSquares = Object.keys(board.boardSpaces).length;
+  this.position = (this.position + diceroll) % noOfSquares;
 
   PubSub.publish('Player:new-position', {
     playerID: this.playerID,
@@ -36,9 +36,9 @@ Player.prototype.move = function (diceroll) {
 };
 
 Player.prototype.getCategoryObject = function () {
-  const boardSpaces = new BoardSpaces();
+  const board = new Board();
 
-  return boardSpaces[this.position];
+  return board.boardSpaces[this.position];
 };
 
 Player.prototype.getPie = function (category) {
