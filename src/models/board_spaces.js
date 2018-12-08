@@ -1,4 +1,4 @@
-// Convert subjects to an array of objects with key of topic and value of corresponding api code.
+// Convert this.subjects to an array of objects with key of topic and value of corresponding api code.
 
 // [{category: 'history', apiCode: 23}, .....]
 
@@ -21,43 +21,43 @@ const BoardSpaces  = function () {
     ];
 
   this.boardSpaces = {
-    0: subjects[0],
-    1: subjects[1],
-    2: subjects[2],
-    3: subjects[3],
-    4: subjects[4],
-    5: subjects[5],
-    6: subjects[0],
-    7: subjects[1],
-    8: subjects[2],
-    9: subjects[3],
-    10: subjects[4],
-    11: subjects[5],
-    12: subjects[0],
-    13: subjects[1],
-    14: subjects[2],
-    15: subjects[3],
-    16: subjects[4],
-    17: subjects[5],
-    18: subjects[0],
-    19: subjects[1],
-    20: subjects[2],
-    21: subjects[3],
-    22: subjects[4],
-    23: subjects[5],
-    24: subjects[0],
-    25: subjects[1],
-    26: subjects[2],
-    27: subjects[3],
-    28: subjects[4],
-    29: subjects[5]
+    0: this.subjects[0],
+    1: this.subjects[1],
+    2: this.subjects[2],
+    3: this.subjects[3],
+    4: this.subjects[4],
+    5: this.subjects[5],
+    6: this.subjects[0],
+    7: this.subjects[1],
+    8: this.subjects[2],
+    9: this.subjects[3],
+    10: this.subjects[4],
+    11: this.subjects[5],
+    12: this.subjects[0],
+    13: this.subjects[1],
+    14: this.subjects[2],
+    15: this.subjects[3],
+    16: this.subjects[4],
+    17: this.subjects[5],
+    18: this.subjects[0],
+    19: this.subjects[1],
+    20: this.subjects[2],
+    21: this.subjects[3],
+    22: this.subjects[4],
+    23: this.subjects[5],
+    24: this.subjects[0],
+    25: this.subjects[1],
+    26: this.subjects[2],
+    27: this.subjects[3],
+    28: this.subjects[4],
+    29: this.subjects[5]
   };
 
 }
 
 // const entertainmentApis = [14, 10, 11, 12];
 //
-// const subjects = [
+// const this.subjects = [
 //
 //   {category: "history",
 //     apiCode: 23},
@@ -79,36 +79,36 @@ const BoardSpaces  = function () {
 //
 //
 // const boardSpaces = {
-//   0: subjects[0],
-//   1: subjects[1],
-//   2: subjects[2],
-//   3: subjects[3],
-//   4: subjects[4],
-//   5: subjects[5],
-//   6: subjects[0],
-//   7: subjects[1],
-//   8: subjects[2],
-//   9: subjects[3],
-//   10: subjects[4],
-//   11: subjects[5],
-//   12: subjects[0],
-//   13: subjects[1],
-//   14: subjects[2],
-//   15: subjects[3],
-//   16: subjects[4],
-//   17: subjects[5],
-//   18: subjects[0],
-//   19: subjects[1],
-//   20: subjects[2],
-//   21: subjects[3],
-//   22: subjects[4],
-//   23: subjects[5],
-//   24: subjects[0],
-//   25: subjects[1],
-//   26: subjects[2],
-//   27: subjects[3],
-//   28: subjects[4],
-//   29: subjects[5]
+//   0: this.subjects[0],
+//   1: this.subjects[1],
+//   2: this.subjects[2],
+//   3: this.subjects[3],
+//   4: this.subjects[4],
+//   5: this.subjects[5],
+//   6: this.subjects[0],
+//   7: this.subjects[1],
+//   8: this.subjects[2],
+//   9: this.subjects[3],
+//   10: this.subjects[4],
+//   11: this.subjects[5],
+//   12: this.subjects[0],
+//   13: this.subjects[1],
+//   14: this.subjects[2],
+//   15: this.subjects[3],
+//   16: this.subjects[4],
+//   17: this.subjects[5],
+//   18: this.subjects[0],
+//   19: this.subjects[1],
+//   20: this.subjects[2],
+//   21: this.subjects[3],
+//   22: this.subjects[4],
+//   23: this.subjects[5],
+//   24: this.subjects[0],
+//   25: this.subjects[1],
+//   26: this.subjects[2],
+//   27: this.subjects[3],
+//   28: this.subjects[4],
+//   29: this.subjects[5]
 // }
 
 module.exports = BoardSpaces;
