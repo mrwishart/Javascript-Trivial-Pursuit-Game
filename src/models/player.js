@@ -1,3 +1,49 @@
+const boardSpaces = require('./board_spaces.js');
+const PubSub = require('../helpers/pub_sub.js')
+
+const Player = function (playerID) {
+  this.playerID = playerID;
+  this.position = 0;
+  this.pie = {
+    "history": false,
+    "geography": false,
+    "sports": false,
+    "art": false,
+    "general-knowledge": false,
+    "entertainment": false
+  };
+}
+
+Player.prototype.bindEvents = function () {
+  PubSub.subscribe(`DiceP${this.playerID}:roll-result`, (event) => {
+    const diceroll = event.detail;
+    PubSub.publish('Player:roll-result', diceroll);
+    move(diceroll);
+    const categoryObject = getCategoryObject();
+    PubSub.publish('Player:question-category', categoryObject);
+  })
+
+  PubSub.subscribe(`QuestionP${this.playerID}:answer-correct`, () => {
+    this.getPie();
+  })
+};
+
+Player.prototype.move = function (diceroll) {
+  const noOfSquares = boardSpaces.keys().length;
+  this.position = (this.position + diceroll) % noOfSquares;
+  PubSub.publish('Player:new-position', {
+    playerID: this.playerID,
+    position: this.position,
+    pie: this.pie
+  });
+};
+
+Player.prototype.getCategoryObject = function () {
+
+};
+
+module.exports = Player;
+
 /*
 requires boardSpaces
 
