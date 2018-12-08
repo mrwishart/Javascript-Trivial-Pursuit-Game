@@ -6,7 +6,7 @@ const RequestHelper = function (url) {
 
 RequestHelper.prototype.get = function () {
   return fetch(this.url)
-    .then(res => res.text())
+    .then(res => res.json())
     .catch(err => console.error(err));
 };
 
