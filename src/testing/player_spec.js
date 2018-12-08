@@ -31,6 +31,14 @@ describe('Player', function () {
     const actual = player.pie;
     assert.deepStrictEqual(actual, expected);
   })
-  
-
+  it('should know when player has not won', () => {
+    assert.strictEqual(player.checkWin(), false);
+  })
+  it('should know when player has won', () => {
+    player.getPie('history');
+    player.getPie('science');
+    player.getPie('geography');
+    player.getPie('sports');
+    assert.strictEqual(player.checkWin(), true);
+  })
 });
