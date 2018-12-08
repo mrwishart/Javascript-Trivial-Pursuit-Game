@@ -1,17 +1,10 @@
-const boardSpaces = require('./board_spaces.js');
+const BoardSpaces = require('./board_spaces.js');
 const PubSub = require('../helpers/pub_sub.js')
 
 const Player = function (playerID) {
   this.playerID = playerID;
   this.position = 0;
-  this.pie = {
-    "history": false,
-    "geography": false,
-    "sports": false,
-    "science": false,
-    "general-knowledge": false,
-    "entertainment": false
-  };
+  this.pie = {};
 }
 
 Player.prototype.bindEvents = function () {
@@ -20,11 +13,13 @@ Player.prototype.bindEvents = function () {
     PubSub.publish('Player:roll-result', diceroll);
     move(diceroll);
     const categoryObject = getCategoryObject();
+    categoryObject['playerID'] = this.playerID;
     PubSub.publish('Player:question-category', categoryObject);
   })
 
-  PubSub.subscribe(`QuestionP${this.playerID}:answer-correct`, () => {
-    this.getPie();
+  PubSub.subscribe(`QuestionP${this.playerID}:answer-correct`, (event) => {
+    const category = event.detail;
+    this.getPie(category);
   })
 };
 
@@ -40,7 +35,18 @@ Player.prototype.move = function (diceroll) {
 };
 
 Player.prototype.getCategoryObject = function () {
+  const boardSpaces = new BoardSpaces();
 
+  return boardSpaces[this.position];
+};
+
+Player.prototype.getPie = function (category) {
+  this.pie[category] = true;
+  if checkWin() {/* do some win state stuff*/};
+};
+
+Player.prototype.checkWin = function () {
+  return this.pie.keys() >= 4;
 };
 
 module.exports = Player;
