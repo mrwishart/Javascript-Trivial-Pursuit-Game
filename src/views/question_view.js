@@ -23,20 +23,30 @@ QuestionView.prototype.render = function (info) {
 };
 
 QuestionView.prototype.displayAnswers = function (answers) {
-  const answerList = document.createElement('select');
-  const intro = document.createElement('option')
-  intro.disabled = true;
-  intro.defaultSelected = true;
-  intro.textContent = "Pick Answer"
-  answerList.appendChild(intro)
+  const answerList = document.createElement('div');
+  //const intro = document.createElement('option')
+  // intro.disabled = true;
+  // intro.defaultSelected = true;
+  // intro.textContent = "Pick Answer"
+  //answerList.appendChild(intro)
   answers.forEach((answer) => {
-    const option = document.createElement('option')
+    const option = document.createElement('button')
     option.id = answer;
     option.innerHTML = answer
     answerList.appendChild(option)
   })
   this.element.appendChild(answerList)
+  answerList.addEventListener('click', (event) => {
+    const selectedAnswer = event.target.id;
+    PubSub.publish('QuestionView:question-answered', selectedAnswer)
+  })
 };
+
+QuestionView.prototype.displayResult = function () {
+
+};
+
+
 
 
 module.exports = QuestionView;

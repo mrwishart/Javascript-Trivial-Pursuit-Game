@@ -28,6 +28,7 @@ Question.prototype.bindEvents = function () {
 
   PubSub.subscribe('QuestionView:question-answered', (event) => {
     const chosenAnswer = event.detail;
+    console.log('chosen answer:', chosenAnswer);
     const result = this.checkAnswer(chosenAnswer);
 
     if (result) {
