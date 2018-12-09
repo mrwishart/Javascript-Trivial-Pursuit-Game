@@ -1,5 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js');
 const PieceView = require('../views/piece_view.js');
+const Board = require('../models/board.js');
 
 const BoardView = function (element) {
   this.element = element;
@@ -26,6 +27,15 @@ BoardView.prototype.render = function (playerId, position, pie) {
 };
 
 BoardView.prototype.setupStartPositions = function () {
+  // Render colour categories on the board.
+  const board = new Board();
+  for (let key in board.boardSpaces) {
+    const space = document.querySelector(`#box${key}`);
+    space.classList.add(`${board.boardSpaces[key].category}`)
+  }
+
+
+  // Render empty pieces on the starting square.
   const emptyPiece = {};
   const startingPosition = document.querySelector('#box0');
   const startingPosition2 = document.querySelector('#box1');
