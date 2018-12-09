@@ -4,16 +4,31 @@ const Board = require('../models/board.js');
 
 const BoardView = function (element) {
   this.element = element;
+  this.oldPosition;
+  this.newPosition;
 }
 
 BoardView.prototype.bindEvents = function () {
   PubSub.subscribe('Player:new-position', (evt) => {
     const playerId = evt.detail.playerID;
-    const position = evt.detail.position;
     const pie = evt.detail.pie;
-    this.render(playerId, position, pie);
+
+    this.newPosition = evt.detail.position;
+    this.oldPosition = evt.detail.oldPosition;
+
+    if (this.oldPosition === undefined) {this.oldPosition = this.newPosition};
+
+    this.render(playerId, this.oldPosition, pie);
   });
+
+  PubSub.subscribe("BoardView:Animation-helper", (evt) => {
+    const playerId = evt.detail.playerID;
+    const pie = evt.detail.pie;
+
+    this.render(playerId, this.oldPosition, pie);
+  })
 };
+
 
 BoardView.prototype.render = function (playerId, position, pie) {
   const oldPiece = document.querySelector(`#player-${playerId}-piece`);
@@ -22,6 +37,16 @@ BoardView.prototype.render = function (playerId, position, pie) {
 
   const pieceView = new PieceView(playerId, htmlPosition, pie);
   pieceView.render();
+  if (position !== this.newPosition) {
+    position = this.oldPosition++;
+    window.setTimeout(function () {
+      PubSub.publish("BoardView:Animation-helper", {
+        playerID: playerId,
+        position: position,
+        pie: pie
+      })
+    }, 100);
+  }
 };
 
 BoardView.prototype.setupStartPositions = function () {

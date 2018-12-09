@@ -2,6 +2,7 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const QuestionView = function (element) {
   this.element = element;
+  this.answers = [];
 }
 
 QuestionView.prototype.bindEvents = function () {
@@ -36,12 +37,20 @@ QuestionView.prototype.displayAnswers = function (answers) {
     option.id = answer;
     option.innerHTML = answer
     answerList.appendChild(option)
+    this.answers.push(option);
   })
   this.element.appendChild(answerList)
   answerList.addEventListener('click', (event) => {
+    this.disableAnswers();
     const selectedAnswer = event.target.id;
     event.target.classList.add('selected-answer');
     PubSub.publish('QuestionView:question-answered', selectedAnswer)
+  })
+};
+
+QuestionView.prototype.disableAnswers = function () {
+  this.answers.forEach((answer) => {
+    answer.disabled = true;
   })
 };
 
