@@ -2,6 +2,33 @@
   border: 1px solid black;
   width: 75px;
   height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.science {
+  background-color: green;
+}
+
+.history {
+  background-color: brown;
+}
+
+.entertainment {
+  background-color: yellow;
+}
+
+.general-knowledge {
+  background-color: purple;
+}
+
+.geography {
+  background-color: blue;
+}
+
+.sports {
+  background-color: orange;
 }
 
 .board-container {
