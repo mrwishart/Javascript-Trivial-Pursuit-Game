@@ -38,6 +38,7 @@ QuestionView.prototype.displayAnswers = function (answers) {
   this.element.appendChild(answerList)
   answerList.addEventListener('click', (event) => {
     const selectedAnswer = event.target.id;
+    event.target.classList.add('selected-answer');
     PubSub.publish('QuestionView:question-answered', selectedAnswer)
   })
 };
@@ -45,7 +46,9 @@ QuestionView.prototype.displayAnswers = function (answers) {
 QuestionView.prototype.displayResult = function (answer) {
   //console.log('answer='answer);
   const answerElement = document.getElementById(answer)
+  answerElement.classList.remove('selected-answer')
   answerElement.classList.add("right-answer")
+
 };
 
 
