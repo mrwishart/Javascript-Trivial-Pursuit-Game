@@ -13,7 +13,7 @@ RollView.prototype.bindEvents = function () {
   PubSub.subscribe('Player:roll-result', (evt) => {
     const previousRoll = document.getElementById("roll-result");
     if (previousRoll) {
-      previousRoll.innerHTML = '';
+      previousRoll.parentElement.removeChild(previousRoll);
     }
 
     const numRolled = evt.detail;
