@@ -43,6 +43,12 @@ Player.prototype.getCategoryObject = function () {
 
 Player.prototype.getPie = function (category) {
   this.pie[category] = true;
+  PubSub.publish('Player:new-position', {
+    playerID: this.playerID,
+    position: this.position,
+    pie: this.pie
+  });
+  
   if (this.checkWin()) {/* do some win state stuff*/};
 };
 
