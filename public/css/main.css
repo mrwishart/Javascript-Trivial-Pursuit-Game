@@ -7,6 +7,18 @@
   align-items: center;
 }
 
+#display-view {
+  display: flex;
+
+}
+
+.roll-view, .question-view {
+  height:100%;
+  width: 50%;
+  display: inline-block;
+  margin: 0;
+}
+
 .science {
   background-color: green;
 }
