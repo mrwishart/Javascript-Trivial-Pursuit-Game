@@ -38,11 +38,12 @@ BoardView.prototype.render = function (playerId, position, pie) {
   const pieceView = new PieceView(playerId, htmlPosition, pie);
   pieceView.render();
   if (position !== this.newPosition) {
-    position = this.oldPosition++;
+    this.oldPosition++;
+    this.oldPosition %= 30;
     window.setTimeout(function () {
       PubSub.publish("BoardView:Animation-helper", {
         playerID: playerId,
-        position: position,
+        position: this.oldPosition,
         pie: pie
       })
     }, 100);
