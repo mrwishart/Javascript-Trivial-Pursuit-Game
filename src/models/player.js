@@ -26,10 +26,12 @@ Player.prototype.bindEvents = function () {
 Player.prototype.move = function (diceroll) {
   const board = new Board();
   const noOfSquares = Object.keys(board.boardSpaces).length;
+  const oldPosition = this.position;
   this.position = (this.position + diceroll) % noOfSquares;
 
   PubSub.publish('Player:new-position', {
     playerID: this.playerID,
+    oldPosition: oldPosition,
     position: this.position,
     pie: this.pie
   });
@@ -48,7 +50,7 @@ Player.prototype.getPie = function (category) {
     position: this.position,
     pie: this.pie
   });
-  
+
   if (this.checkWin()) {/* do some win state stuff*/};
 };
 
