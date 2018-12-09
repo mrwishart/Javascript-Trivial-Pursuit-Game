@@ -10,7 +10,7 @@ QuestionView.prototype.bindEvents = function () {
     this.render(questionInfo);
   })
   PubSub.subscribe('Question:question-result', (event) => {
-    const questionResult = event.detail;
+    const questionResult = event.detail.answer;
     this.displayResult(questionResult)
   })
 };

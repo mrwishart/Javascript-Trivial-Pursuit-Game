@@ -11,11 +11,12 @@ RollView.prototype.bindEvents = function () {
 };
 
 RollView.prototype.render = function (playerId) {
-  const parentElement = document.querySelector('#display-view');
+  // const parentElement = document.querySelector('#display-view');
 
-  const rollContainer = document.createElement('div');
-  rollContainer.classList.add('roll-container');
-  parentElement.appendChild(rollContainer);
+  const rollContainer = document.querySelector('#roll-view');
+  rollContainer.innerHTML = '';
+  // rollContainer.classList.add('roll-container');
+  // parentElement.appendChild(rollContainer);
 
   const instruction = document.createElement('p');
   instruction.textContent = `Player ${playerId}, it's your turn!`;

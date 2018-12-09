@@ -16,6 +16,7 @@ Question.prototype.bindEvents = function () {
     const categoryObject = event.detail;
     const apiCode = categoryObject.apiCode;
     this.playerID = categoryObject.playerID;
+    this.category = categoryObject.category;
     const url = `https://opentdb.com/api.php?amount=1&category=${apiCode}&difficulty=medium&type=multiple`
     console.log(url);
     const request = new RequestHelper(url);
@@ -30,12 +31,16 @@ Question.prototype.bindEvents = function () {
     const chosenAnswer = event.detail;
     console.log('chosen answer:', chosenAnswer);
     const result = this.checkAnswer(chosenAnswer);
+    const resultObject = {
+      answer: this.correctAnswer,
+      answerCorrect: result
+    };
 
     if (result) {
       PubSub.publish(`QuestionP${this.playerID}:answer-correct`, this.category);
     }
 
-    PubSub.publish('Question:question-result', this.correctAnswer);
+    PubSub.publish('Question:question-result', resultObject);
   })
 };
 
@@ -44,7 +49,6 @@ Question.prototype.checkAnswer = function (chosenAnswer) {
 };
 
 Question.prototype.addQuestionInfo = function (apiInfo) {
-  this.category = apiInfo.category;
   this.question = apiInfo.question;
   this.correctAnswer = apiInfo['correct_answer'];
   this.answersArray = apiInfo['incorrect_answers'];
