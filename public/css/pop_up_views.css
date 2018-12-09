@@ -1,0 +1,16 @@
+#win-view {
+  position: fixed;
+  z-index: 100;
+  width: 550px;
+  height: 475px;
+  left: 70px;
+  top: 70px;
+  background-color: pink;
+  border: gold 5px solid;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}

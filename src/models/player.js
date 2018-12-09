@@ -51,7 +51,9 @@ Player.prototype.getPie = function (category) {
     pie: this.pie
   });
 
-  if (this.checkWin()) {/* do some win state stuff*/};
+  if (this.checkWin()) {
+    PubSub.publish('Player:win-detected', this.playerID);
+  };
 };
 
 Player.prototype.checkWin = function () {
