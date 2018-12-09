@@ -10,8 +10,7 @@ BoardView.prototype.bindEvents = function () {
   PubSub.subscribe('Player:new-position', (evt) => {
     const playerId = evt.detail.playerID;
     const position = evt.detail.position;
-    const pie = this.pie;
-    console.log(pie);
+    const pie = evt.detail.pie;
     this.render(playerId, position, pie);
   });
 };

@@ -17,7 +17,6 @@ PieceView.prototype.render = function () {
     "science": 'green-pie',
     "general-knowledge": 'purple-pie'
   };
-  console.log(this.pie);
   const achievedPies = Object.keys(this.pie);
 
   for (let i = 1; i <= achievedPies.length; i++) {
