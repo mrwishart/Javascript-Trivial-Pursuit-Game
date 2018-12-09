@@ -94,3 +94,7 @@
 .right-answer {
   background-color: green;
 }
+
+.selected-answer {
+  background-color: red;
+}
