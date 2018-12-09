@@ -8,16 +8,19 @@ const Question = function () {
   this.answersArray;
   this.playerID;
   this.questionDifficulty = "medium";
+  this.token;
 }
 
 Question.prototype.bindEvents = function () {
+
+  this.getTokenFromAPI();
 
   PubSub.subscribe('Player:question-category', (event) => {
     const categoryObject = event.detail;
     const apiCode = categoryObject.apiCode;
     this.playerID = categoryObject.playerID;
     this.category = categoryObject.category;
-    const url = `https://opentdb.com/api.php?amount=1&category=${apiCode}&difficulty=medium&type=multiple`
+    const url = `https://opentdb.com/api.php?amount=1&category=${apiCode}&difficulty=medium&type=multiple&token=${this.token}`
     console.log(url);
     const request = new RequestHelper(url);
     request.get()
@@ -42,6 +45,13 @@ Question.prototype.bindEvents = function () {
 
     PubSub.publish('Question:question-result', resultObject);
   })
+};
+
+Question.prototype.getTokenFromAPI = function () {
+  const url = "https://opentdb.com/api_token.php?command=request";
+  const request = new RequestHelper(url);
+  request.get()
+    .then((result) => {this.token = result.token;})
 };
 
 Question.prototype.checkAnswer = function (chosenAnswer) {
