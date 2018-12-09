@@ -30,7 +30,7 @@ BoardView.prototype.setupStartPositions = function () {
   const startingPosition = document.querySelector('#box0');
   const startingPosition2 = document.querySelector('#box1');
   const pieceOne = new PieceView(1, startingPosition, emptyPiece);
-  const pieceTwo = new PieceView(2, startingPosition2, emptyPiece);
+  const pieceTwo = new PieceView(2, startingPosition, emptyPiece);
   pieceOne.render();
   pieceTwo.render();
 };

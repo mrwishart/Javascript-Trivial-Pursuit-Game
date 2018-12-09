@@ -23,3 +23,34 @@
   width: 40%;
   height: 40%;
 }
+
+"history": 'brown-pie',
+"geography": 'blue-pie',
+"sports": 'orange-pie',
+"entertainment": 'yellow-pie',
+"science": 'green-pie',
+"general-knowledge": 'purple-pie'
+
+.purple-pie {
+  background-color: purple;
+}
+
+.green-pie {
+  background-color: green;
+}
+
+.yellow-pie {
+  background-color: yellow;
+}
+
+.orange-pie {
+  background-color: orange;
+}
+
+.blue-pie {
+  background-color: blue;
+}
+
+.brown-pie {
+  background-color: brown;
+}

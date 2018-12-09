@@ -21,7 +21,7 @@ PieceView.prototype.render = function () {
 
   for (let i = 1; i <= achievedPies.length; i++) {
     const slot = document.createElement('div');
-    slot.classList.add(`slot-${i}`, `${categoryClass[achievedPies[i]]}`);
+    slot.classList.add(`slot-${i}`, `${categoryClass[achievedPies[i-1]]}`);
     piece.appendChild(slot);
   }
 
