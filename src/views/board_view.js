@@ -11,8 +11,7 @@ BoardView.prototype.bindEvents = function () {
     const playerId = evt.detail.playerID;
     const position = evt.detail.position;
     const pie = this.pie;
-
-    this.element.innerHTML = '';
+    console.log(pie);
     this.render(playerId, position, pie);
   });
 };
