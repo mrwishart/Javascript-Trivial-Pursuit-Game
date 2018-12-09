@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#player-view {
+  box-sizing: border-box;
+  display: inline-flex;
+  width: 400px;
+  background-color: pink;
+  height: 600px;
+  border: 2px black solid;
+  border-radius: 5px;
+  margin-left: 50px;
+}
