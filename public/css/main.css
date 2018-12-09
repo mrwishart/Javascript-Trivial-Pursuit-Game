@@ -90,3 +90,7 @@
   grid-row-end: 8;
   background-color: pink;
 }
+
+.right-answer {
+  background-color: green;
+}
