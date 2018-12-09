@@ -9,7 +9,8 @@ const QuestionView = require('./views/question_view.js')
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Javascript loaded");
 
-  const rollView = new RollView();
+  const rollContainer = document.querySelector('#roll-view');
+  const rollView = new RollView(rollContainer);
   rollView.bindEvents();
 
   const dice = new Dice();
