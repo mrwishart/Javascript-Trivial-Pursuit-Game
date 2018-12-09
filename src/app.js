@@ -4,7 +4,8 @@ const Game = require('./models/game.js');
 const Player = require('./models/player.js');
 const BoardView = require('./views/board_view.js');
 const Question = require('./models/question.js');
-const QuestionView = require('./views/question_view.js')
+const QuestionView = require('./views/question_view.js');
+const WinView = require('./views/win_view.js');
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Javascript loaded");
@@ -30,9 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
   boardView.setupStartPositions();
 
   const parentElement = document.querySelector('#question-view')
-  const questionView = new QuestionView(parentElement)
+  const questionView = new QuestionView(parentElement);
   questionView.bindEvents();
 
+  const winView = new WinView(boardElement);
+  winView.bindEvents();
 
 
 

@@ -35,6 +35,7 @@ BoardView.prototype.setupStartPositions = function () {
 
   // Render empty pieces on the starting square.
   const emptyPiece = {};
+  const nearlyDonePiece = {'science': true, 'entertainment': true, 'geography': true}
   const startingPosition = document.querySelector('#box0');
   const startingPosition2 = document.querySelector('#box1');
   const pieceOne = new PieceView(1, startingPosition, emptyPiece);
