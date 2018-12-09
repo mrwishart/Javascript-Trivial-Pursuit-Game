@@ -22,14 +22,20 @@ const Game = function () {
 Game.prototype.bindEvents = function () {
   PubSub.subscribe('Question:question-result', (evt) => {
     const answerCorrect = evt.detail.answerCorrect;
-    if (answerCorrect) {this.passTurn()};
+    console.log(answerCorrect);
+    if (!answerCorrect) {this.passTurn()};
   });
-  PubSub.publish('Game:current-player', this.currentPlayer);
+  this.nextMove();
 };
 
 Game.prototype.passTurn = function () {
   const turnOrder = {1: 2, 2: 1};
   this.currentPlayer = turnOrder[this.currentPlayer];
+  this.nextMove();
+};
+
+Game.prototype.nextMove = function () {
+  PubSub.publish('Game:current-player', this.currentPlayer);
 };
 
 module.exports = Game;

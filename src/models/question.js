@@ -31,12 +31,16 @@ Question.prototype.bindEvents = function () {
     const chosenAnswer = event.detail;
     console.log('chosen answer:', chosenAnswer);
     const result = this.checkAnswer(chosenAnswer);
+    const resultObject = {
+      answer: this.correctAnswer,
+      answerCorrect: result
+    };
 
     if (result) {
       PubSub.publish(`QuestionP${this.playerID}:answer-correct`, this.category);
     }
 
-    PubSub.publish('Question:question-result', this.correctAnswer);
+    PubSub.publish('Question:question-result', resultObject);
   })
 };
 
