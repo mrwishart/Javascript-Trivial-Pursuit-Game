@@ -22,8 +22,9 @@ const Game = function () {
 Game.prototype.bindEvents = function () {
   PubSub.subscribe('Question:question-result', (evt) => {
     const answerCorrect = evt.detail.answerCorrect;
-    console.log(answerCorrect);
+    // console.log(answerCorrect);
     if (!answerCorrect) {this.passTurn()};
+    this.nextMove();
   });
   this.nextMove();
 };
@@ -31,7 +32,6 @@ Game.prototype.bindEvents = function () {
 Game.prototype.passTurn = function () {
   const turnOrder = {1: 2, 2: 1};
   this.currentPlayer = turnOrder[this.currentPlayer];
-  this.nextMove();
 };
 
 Game.prototype.nextMove = function () {

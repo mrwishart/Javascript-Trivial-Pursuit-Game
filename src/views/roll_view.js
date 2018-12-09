@@ -11,11 +11,6 @@ RollView.prototype.bindEvents = function () {
   })
 
   PubSub.subscribe('Player:roll-result', (evt) => {
-    const previousRoll = document.getElementById("roll-result");
-    if (previousRoll) {
-      previousRoll.parentElement.removeChild(previousRoll);
-    }
-
     const numRolled = evt.detail;
     const numRolledElement = document.createElement('p');
     numRolledElement.id = "roll-result";
@@ -25,11 +20,8 @@ RollView.prototype.bindEvents = function () {
 };
 
 RollView.prototype.render = function (playerId) {
-  // const parentElement = document.querySelector('#display-view');
 
   this.rollContainer.innerHTML = '';
-  // rollContainer.classList.add('roll-container');
-  // parentElement.appendChild(rollContainer);
 
   const instruction = document.createElement('p');
   instruction.textContent = `Player ${playerId}, it's your turn!`;
@@ -41,6 +33,7 @@ RollView.prototype.render = function (playerId) {
 
   rollButton.addEventListener('click', (evt) => {
     PubSub.publish('RollView:dice-clicked', playerId);
+    rollButton.disabled = true;
   });
 }
 
