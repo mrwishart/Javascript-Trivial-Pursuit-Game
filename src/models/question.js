@@ -35,7 +35,7 @@ Question.prototype.bindEvents = function () {
       PubSub.publish(`QuestionP${this.playerID}:answer-correct`, this.category);
     }
 
-    PubSub.publish('Question:question-result', result);
+    PubSub.publish('Question:question-result', this.correctAnswer);
   })
 };
 

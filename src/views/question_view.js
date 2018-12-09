@@ -42,8 +42,10 @@ QuestionView.prototype.displayAnswers = function (answers) {
   })
 };
 
-QuestionView.prototype.displayResult = function () {
-
+QuestionView.prototype.displayResult = function (answer) {
+  //console.log('answer='answer);
+  const answerElement = document.getElementById(answer)
+  answerElement.classList.add("right-answer")
 };
 
 
