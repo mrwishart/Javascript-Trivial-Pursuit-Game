@@ -29,6 +29,7 @@ BoardView.prototype.bindEvents = function () {
   })
 };
 
+
 BoardView.prototype.render = function (playerId, position, pie) {
   const oldPiece = document.querySelector(`#player-${playerId}-piece`);
   oldPiece.parentNode.removeChild(oldPiece);
@@ -37,12 +38,13 @@ BoardView.prototype.render = function (playerId, position, pie) {
   const pieceView = new PieceView(playerId, htmlPosition, pie);
   pieceView.render();
   if (position !== this.newPosition) {
+    position = this.oldPosition++;
     window.setTimeout(function () {
       PubSub.publish("BoardView:Animation-helper", {
         playerID: playerId,
-        position: position++,
+        position: position,
         pie: pie
-      });
+      })
     }, 100);
   }
 };
