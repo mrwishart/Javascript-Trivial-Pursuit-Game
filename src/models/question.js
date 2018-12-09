@@ -16,6 +16,7 @@ Question.prototype.bindEvents = function () {
     const categoryObject = event.detail;
     const apiCode = categoryObject.apiCode;
     this.playerID = categoryObject.playerID;
+    this.category = categoryObject.category;
     const url = `https://opentdb.com/api.php?amount=1&category=${apiCode}&difficulty=medium&type=multiple`
     console.log(url);
     const request = new RequestHelper(url);
@@ -44,7 +45,6 @@ Question.prototype.checkAnswer = function (chosenAnswer) {
 };
 
 Question.prototype.addQuestionInfo = function (apiInfo) {
-  this.category = apiInfo.category;
   this.question = apiInfo.question;
   this.correctAnswer = apiInfo['correct_answer'];
   this.answersArray = apiInfo['incorrect_answers'];
