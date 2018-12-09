@@ -17,10 +17,12 @@ QuestionView.prototype.bindEvents = function () {
 
 QuestionView.prototype.render = function (info) {
   const question = document.createElement('p')
+  this.element.innerHTML = ""
   question.innerHTML = info.question;
   this.element.appendChild(question)
   this.displayAnswers(info.answers)
 };
+
 
 QuestionView.prototype.displayAnswers = function (answers) {
   const answerList = document.createElement('div');

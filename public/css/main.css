@@ -5,16 +5,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 #display-view {
   display: flex;
+  max-width: 525px;
 
 }
 
-.roll-view, .question-view {
+#roll-view, #question-view {
   height:100%;
   width: 50%;
+  max-width: 50%;
   display: inline-block;
   margin: 0;
 }

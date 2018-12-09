@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   boardView.bindEvents();
   boardView.setupStartPositions();
 
-  const parentElement = document.querySelector('#display-view')
+  const parentElement = document.querySelector('#question-view')
   const questionView = new QuestionView(parentElement)
   questionView.bindEvents();
 
