@@ -17,8 +17,14 @@ IntroView.prototype.createIntroForm = function () {
   this.introElement.id = 'win-view';
   this.parentElement.appendChild(this.introElement);
   const playerEntryForm = document.createElement('form');
+  const addPlayerNumber = this.addPlayerNumberSelect(playerEntryForm);
+  this.addLineBreak(playerEntryForm);
+  this.addLineBreak(playerEntryForm);
   this.addPlayerEntry('1', playerEntryForm);
+  this.addLineBreak(playerEntryForm);
+  this.addLineBreak(playerEntryForm);
   this.addPlayerEntry('2', playerEntryForm);
+  this.addLineBreak(playerEntryForm);
   this.addSubmit(playerEntryForm);
 
   this.introElement.appendChild(playerEntryForm);
@@ -37,6 +43,25 @@ IntroView.prototype.createIntroForm = function () {
 
   })
 
+};
+
+IntroView.prototype.addPlayerNumberSelect = function (form) {
+  const label = document.createElement('label');
+  label.textContent = "This will be a game for ";
+  form.appendChild(label)
+  const numberSelect = document.createElement('select')
+  const twoPlayers = document.createElement('option')
+  twoPlayers.textContent = "Two Players"
+  numberSelect.appendChild(twoPlayers)
+  const threePlayers = document.createElement('option')
+  threePlayers.textContent = "Three Players"
+  threePlayers.value = 3
+  numberSelect.appendChild(threePlayers)
+  const fourPlayers = document.createElement('option')
+  fourPlayers.textContent = "Four Players"
+  fourPlayers.value = 4
+  numberSelect.appendChild(fourPlayers)
+  form.appendChild(numberSelect)
 };
 
 
@@ -60,6 +85,10 @@ IntroView.prototype.addSubmit = function (form) {
   form.appendChild(introSubmit);
 };
 
+IntroView.prototype.addLineBreak = function (form) {
+  lineBreak = document.createElement('br')
+  form.appendChild(lineBreak)
+};
 
 
 
