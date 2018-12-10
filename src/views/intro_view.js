@@ -4,6 +4,7 @@ const IntroView = function (parentElement) {
   this.parentElement = parentElement;
   this.player1 = null;
   this.player2 = null;
+  this.introElement = null;
 }
 
 
@@ -12,23 +13,25 @@ IntroView.prototype.bindEvents = function () {
 };
 
 IntroView.prototype.createIntroForm = function () {
-  const introViewElement = document.createElement('div');
-  introViewElement.id = 'win-view';
-  this.parentElement.appendChild(introViewElement);
+  this.introElement = document.createElement('div');
+  this.introElement.id = 'win-view';
+  this.parentElement.appendChild(this.introElement);
   const playerEntryForm = document.createElement('form');
   this.addPlayerEntry('1', playerEntryForm);
   this.addPlayerEntry('2', playerEntryForm);
   this.addSubmit(playerEntryForm);
 
-  introViewElement.appendChild(playerEntryForm);
+  this.introElement.appendChild(playerEntryForm);
 
   playerEntryForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const firstPlayerName = document.getElementById('1').value
     const secondPlayerName = document.getElementById('2').value
+    const playerNames = [firstPlayerName, secondPlayerName]
 
-    PubSub.publish('IntroForm:player1-details-entered', firstPlayerName)
-    PubSub.publish('IntroForm:player2-details-entered', secondPlayerName)
+    PubSub.publish('IntroForm:player-details-entered', playerNames);
+
+    this.introElement.parentNode.removeChild(this.introElement);
 
   })
 
