@@ -41,10 +41,12 @@ QuestionView.prototype.displayAnswers = function (answers) {
   })
   this.element.appendChild(answerList)
   answerList.addEventListener('click', (event) => {
-    this.disableAnswers();
     const selectedAnswer = event.target.id;
+    if (selectedAnswer){
+    this.disableAnswers();
     event.target.classList.add('selected-answer');
     PubSub.publish('QuestionView:question-answered', selectedAnswer)
+    }
   })
 };
 
