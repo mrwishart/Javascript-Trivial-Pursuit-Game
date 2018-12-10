@@ -1,5 +1,6 @@
 const RollView = require('./views/roll_view.js');
 const Dice = require("./models/dice.js");
+const DiceView = require("./views/dice_view.js");
 const Game = require('./models/game.js');
 const Player = require('./models/player.js');
 const BoardView = require('./views/board_view.js');
@@ -10,6 +11,10 @@ const PlayerView = require('./views/player_view.js');
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Javascript loaded");
+
+  const diceViewElement = document.querySelector('#dice-result');
+  const diceView = new DiceView(diceViewElement);
+  diceView.bindEvents();
 
   const rollContainer = document.querySelector('#roll-view');
   const rollView = new RollView(rollContainer);

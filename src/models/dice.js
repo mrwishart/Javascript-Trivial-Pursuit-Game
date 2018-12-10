@@ -10,6 +10,7 @@ Dice.prototype.bindEvents = function () {
     const playerId = event.detail;
     const diceRoll = this.roll()
     PubSub.publish(`DiceP${playerId}:roll-result`, diceRoll)
+    PubSub.publish('Dice:Rolled', diceRoll);
   })
 
 };
