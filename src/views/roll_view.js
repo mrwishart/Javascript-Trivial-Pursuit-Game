@@ -3,13 +3,14 @@ const DiceView = require('./dice_view.js');
 
 const RollView = function (rollContainer) {
   this.rollContainer = rollContainer;
-  this.diceElement = new DiceView()
+  this.diceElement = new DiceView();
+  this.currentPlayer;
 }
 
 RollView.prototype.bindEvents = function () {
   PubSub.subscribe('Game:current-player', (evt) => {
-    const player = evt.detail;
-    this.render(player)
+    this.currentPlayer = evt.detail;
+    this.render(this.currentPlayer);
     this.diceElement.active = true;
   })
 
@@ -40,8 +41,8 @@ RollView.prototype.render = function (player) {
 
   rollButton.addEventListener('click', (evt) => {
     if (this.diceElement.active) {
-
-    PubSub.publish('RollView:dice-clicked', player.id);
+    console.log(player);
+    PubSub.publish('RollView:dice-clicked', this.currentPlayer.id);
     // rollButton.disabled = true;
     this.diceElement.active = false;
   }
