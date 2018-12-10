@@ -13,16 +13,14 @@ const PlayerView = require('./views/player_view.js');
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Javascript loaded");
 
-<<<<<<< HEAD
   const diceViewElement = document.querySelector('#dice-result');
   const diceView = new DiceView(diceViewElement);
   diceView.bindEvents();
-=======
+  
   const boardElement = document.querySelector('.board-container');
 
   const introView = new IntroView(boardElement);
   introView.bindEvents();
->>>>>>> develop
 
   const rollContainer = document.querySelector('#roll-view');
   const rollView = new RollView(rollContainer);
