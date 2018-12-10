@@ -20,6 +20,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px auto;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.highlighted {
+  border: 5px lime solid;
+  border-radius: 10px;
 }
 
 .player-info-div {
@@ -29,4 +37,7 @@ body {
 .piece-info-div {
   width: 80px;
   height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
