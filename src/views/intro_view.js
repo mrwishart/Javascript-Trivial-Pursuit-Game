@@ -16,23 +16,28 @@ IntroView.prototype.createIntroForm = function () {
   introViewElement.id = 'win-view';
   this.parentElement.appendChild(introViewElement);
   const playerEntryForm = document.createElement('form');
-  this.addPlayerEntry('player 1', playerEntryForm);
-  this.addPlayerEntry('player 2', playerEntryForm);
+  this.addPlayerEntry('1', playerEntryForm);
+  this.addPlayerEntry('2', playerEntryForm);
   this.addSubmit(playerEntryForm);
 
-  introViewElement.appendChild(playerEntryForm)
+  introViewElement.appendChild(playerEntryForm);
+
+  playerEntryForm.addEventListener('submit', (event) => {
+    PubSub.publish('IntroForm:player-details-entered', event.target.value)
+  })
 
 };
 
 
 IntroView.prototype.addPlayerEntry = function (player, form) {
   const label = document.createElement('label')
-  label.textContent = `${player}, enter your name:`
+  label.textContent = `Player ${player}, enter your name:`
   form.appendChild(label);
 
   const entry = document.createElement('input')
   entry.setAttribute('type', 'text')
-  entry.setAttribute('value', `${player}`)
+  entry.setAttribute('name', `${player}`)
+  entry.setAttribute('value', `Player ${player}`)
   form.appendChild(entry)
 };
 
@@ -42,27 +47,6 @@ IntroView.prototype.addSubmit = function (form) {
   introSubmit.setAttribute('value', 'Start Game');
   form.appendChild(introSubmit);
 };
-
-
-// const playerOneEntry = document.createElement('input')
-// playerOneEntry.setAttribute('type', 'text')
-// playerOneEntry.setAttribute('value', 'player1')
-// playerEntryForm.appendChild(playerOneEntry)
-//
-// const playerTwoLabel = document.createElement('label')
-// playerTwoLabel.textContent = "Player Two, enter your name:"
-// playerEntryForm.appendChild(playerTwoLabel)
-//
-// const playerTwoEntry = document.createElement('input')
-// playerTwoEntry.setAttribute('type', 'text')
-// playerTwoEntry.setAttribute('value', 'player2')
-// playerEntryForm.appendChild(playerTwoEntry)
-
-
-
-
-
-
 
 
 
