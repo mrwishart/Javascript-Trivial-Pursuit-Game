@@ -24,7 +24,12 @@ IntroView.prototype.createIntroForm = function () {
 
   playerEntryForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    PubSub.publish('IntroForm:player-details-entered', event.target.value)
+    const firstPlayerName = document.getElementById('1').value
+    const secondPlayerName = document.getElementById('2').value
+
+    PubSub.publish('IntroForm:player1-details-entered', firstPlayerName)
+    PubSub.publish('IntroForm:player2-details-entered', secondPlayerName)
+
   })
 
 };
@@ -37,6 +42,7 @@ IntroView.prototype.addPlayerEntry = function (player, form) {
 
   const entry = document.createElement('input')
   entry.setAttribute('type', 'text')
+  entry.id = player
   entry.setAttribute('name', `${player}`)
   entry.setAttribute('value', `Player ${player}`)
   form.appendChild(entry)

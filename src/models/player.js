@@ -5,6 +5,7 @@ const Player = function (playerID) {
   this.playerID = playerID;
   this.position = 0;
   this.pie = {};
+  this.name;
 }
 
 Player.prototype.bindEvents = function () {
@@ -20,6 +21,10 @@ Player.prototype.bindEvents = function () {
   PubSub.subscribe(`QuestionP${this.playerID}:answer-correct`, (event) => {
     const category = event.detail;
     this.getPie(category);
+  })
+  PubSub.subscribe(`IntroForm:player${this.playerID}-details-entered`, (event) => {
+    this.name = event.detail;
+    console.log(this.name);
   })
 };
 
