@@ -13,13 +13,26 @@ Something like...
 2: 1}
 
 */
+const Player = require('./player.js');
 const PubSub = require('../helpers/pub_sub.js');
 
-const Game = function () {
+const Game = function (boardView, playerView) {
   this.currentPlayer = 1;
+  this.board = boardView;
+  this.playerView = playerView;
 };
 
 Game.prototype.bindEvents = function () {
+  PubSub.subscribe('IntroForm:player-details-entered', (event) => {
+    this.playerView.bindEvents();
+    const playerObject = event.detail;
+    for (playerID in playerObject){
+      const newPlayer = new Player(playerID, playerObject[playerID]);
+      newPlayer.bindEvents();
+    }
+    this.board.setStartingPositions();
+  })
+
   PubSub.subscribe('Question:question-result', (evt) => {
     const answerCorrect = evt.detail.answerCorrect;
     // console.log(answerCorrect);

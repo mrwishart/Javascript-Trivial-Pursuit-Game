@@ -27,7 +27,9 @@ IntroView.prototype.createIntroForm = function () {
     event.preventDefault()
     const firstPlayerName = document.getElementById('1').value
     const secondPlayerName = document.getElementById('2').value
-    const playerNames = [firstPlayerName, secondPlayerName]
+    const playerNames = {
+      1: firstPlayerName,
+      2: secondPlayerName}
 
     PubSub.publish('IntroForm:player-details-entered', playerNames);
 

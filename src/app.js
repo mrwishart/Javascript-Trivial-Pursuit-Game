@@ -26,19 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const playerViewElement = document.querySelector('#player-view');
   const playerView = new PlayerView(playerViewElement);
-  playerView.bindEvents();
-
-  const player1 = new Player(1);
-  const player2 = new Player(2);
-  player1.bindEvents();
-  player2.bindEvents();
+  //playerView.bindEvents();
 
   const question = new Question();
   question.bindEvents();
 
   const boardView = new BoardView(boardElement);
   boardView.bindEvents();
-  boardView.setupStartPositions();
 
   const parentElement = document.querySelector('#question-view')
   const questionView = new QuestionView(parentElement);
@@ -49,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  const game = new Game();
+  const game = new Game(boardView, playerView);
   game.bindEvents();
 
 

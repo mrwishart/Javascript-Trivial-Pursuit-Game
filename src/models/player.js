@@ -1,11 +1,11 @@
 const Board = require('./board.js');
 const PubSub = require('../helpers/pub_sub.js')
 
-const Player = function (playerID) {
+const Player = function (playerID, name) {
   this.playerID = playerID;
   this.position = 0;
   this.pie = {};
-  this.name;
+  this.name = name;
 }
 
 Player.prototype.bindEvents = function () {
@@ -30,6 +30,7 @@ Player.prototype.bindEvents = function () {
     playerID: this.playerID,
     pie: this.pie
   });
+  PubSub.publish(`Player:new-player`, true);
 };
 
 Player.prototype.move = function (diceroll) {

@@ -6,6 +6,7 @@ const BoardView = function (element) {
   this.element = element;
   this.oldPosition;
   this.newPosition;
+  this.playerNumber = 0;
 }
 
 BoardView.prototype.bindEvents = function () {
@@ -26,6 +27,11 @@ BoardView.prototype.bindEvents = function () {
     const pie = evt.detail.pie;
 
     this.render(playerId, this.oldPosition, pie);
+  })
+  this.colourInBoard();
+
+  PubSub.subscribe('Player:new-player', (event) => {
+    this.playerNumber += 1;
   })
 };
 
@@ -50,7 +56,7 @@ BoardView.prototype.render = function (playerId, position, pie) {
   }
 };
 
-BoardView.prototype.setupStartPositions = function () {
+BoardView.prototype.colourInBoard = function () {
   // Render colour categories on the board.
   const board = new Board();
   for (let key in board.boardSpaces) {
@@ -58,7 +64,9 @@ BoardView.prototype.setupStartPositions = function () {
     space.classList.add(`${board.boardSpaces[key].category}`)
   }
 
+};
 
+BoardView.prototype.setStartingPositions = function () {
   // Render empty pieces on the starting square.
   const emptyPiece = {};
   const nearlyDonePiece = {'science': true, 'entertainment': true, 'geography': true}
