@@ -22,10 +22,17 @@ Player.prototype.bindEvents = function () {
     const category = event.detail;
     this.getPie(category);
   })
+<<<<<<< HEAD
   PubSub.subscribe(`IntroForm:player${this.playerID}-details-entered`, (event) => {
     this.name = event.detail;
     console.log(this.name);
   })
+=======
+  PubSub.publish(`Player${this.playerID}:player-created`, {
+    playerID: this.playerID,
+    pie: this.pie
+  });
+>>>>>>> develop
 };
 
 Player.prototype.move = function (diceroll) {

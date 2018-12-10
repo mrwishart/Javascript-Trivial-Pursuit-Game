@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  justify-content: left;
+}
+
+#player-view {
+  box-sizing: border-box;
+  display: inline-flex;
+  width: 300px;
+  background-color: pink;
+  height: 600px;
+  border: 2px black solid;
+  border-radius: 5px;
+  margin-left: 50px;
+  flex-direction: column;
+  padding:20px 0px;
+}
+
+.player-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-info-div {
+  margin-left: 50px
+}
+
+.piece-info-div {
+  width: 80px;
+  height: 80px;
+}

@@ -1,13 +1,13 @@
 #win-view {
   position: fixed;
   z-index: 100;
-  width: 550px;
-  height: 475px;
-  left: 70px;
-  top: 70px;
+  top: 60px;
+  left: 67.5px;
+  height: 480px;
+  width: 540px;
   background-color: pink;
   border: gold 5px solid;
-  border-radius: 20px;
+  border-radius: 40px;
   box-shadow: 5px 5px 15px;
   display: flex;
   justify-content: center;

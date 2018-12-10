@@ -13,8 +13,10 @@ WinView.prototype.bindEvents = function () {
 };
 
 WinView.prototype.render = function (winnerID) {
+
   const winViewElement = document.createElement('div');
   winViewElement.id = 'win-view';
+
   this.parentElement.appendChild(winViewElement);
 
   const congrat = document.createElement('h1');
