@@ -22,11 +22,34 @@
   margin: 0;
 }
 
-#key-view, #roll-view {
+#question-view p {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 1px;
+}
+
+#question-view button {
+  margin: 2px 1px;
+  display: block;
+  padding: 10px;
+  width: calc(100% - 2px);
+  text-align: center;
+}
+
+#key-view{
   height:50%;
   width: 100%;
   max-width: 100%;
   max-height: 50%;
+  display: block;
+  margin: 0;
+}
+
+#roll-view, #dice-view {
+  height:25%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 25%;
   display: block;
   margin: 0;
 }
