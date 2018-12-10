@@ -17,6 +17,8 @@ IntroView.prototype.createIntroForm = function () {
   this.introElement.id = 'win-view';
   this.parentElement.appendChild(this.introElement);
   const playerEntryForm = document.createElement('form');
+  this.addSubmit(playerEntryForm);
+  this.addLineBreak(playerEntryForm);
   const addPlayerNumber = this.addPlayerNumberSelect(playerEntryForm);
   this.addLineBreak(playerEntryForm);
   this.addLineBreak(playerEntryForm);
@@ -24,7 +26,6 @@ IntroView.prototype.createIntroForm = function () {
   this.addLineBreak(playerEntryForm);
   this.addLineBreak(playerEntryForm);
   this.addPlayerEntry('2', playerEntryForm);
-  this.addLineBreak(playerEntryForm);
   this.addLineBreak(playerEntryForm);
 
 
@@ -39,12 +40,13 @@ IntroView.prototype.createIntroForm = function () {
       this.addLineBreak(playerEntryForm);
       this.addPlayerEntry('3', playerEntryForm);
       this.addLineBreak(playerEntryForm);
+      this.addLineBreak(playerEntryForm);
       this.addPlayerEntry('4', playerEntryForm);
       this.addLineBreak(playerEntryForm);
     }
   }),
 
-  this.addSubmit(playerEntryForm);
+
 
   playerEntryForm.addEventListener('submit', (event) => {
     event.preventDefault()
