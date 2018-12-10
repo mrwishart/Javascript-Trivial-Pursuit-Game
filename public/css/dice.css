@@ -11,6 +11,16 @@
   grid-template-rows: auto auto auto;
 }
 
+.roll-instruction {
+  font-size: larger;
+  text-align: center;
+  padding: 30px;
+}
+
+#roll-view button {
+  margin: auto;
+}
+
 .dice-button {
   border-radius: 8000px;
   margin: 7.5px;

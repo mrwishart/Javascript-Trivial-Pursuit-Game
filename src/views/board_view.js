@@ -52,7 +52,7 @@ BoardView.prototype.render = function (playerId, position, pie) {
         position: this.oldPosition,
         pie: pie
       })
-    }, 100);
+    }, 80);
   }
 };
 
