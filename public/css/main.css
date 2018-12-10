@@ -14,13 +14,28 @@
 
 }
 
-#roll-view, #question-view {
+#left-view, #question-view {
   height:100%;
   width: 50%;
   max-width: 50%;
   display: inline-block;
   margin: 0;
 }
+
+#key-view, #roll-view {
+  height:50%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 50%;
+  display: block;
+  margin: 0;
+}
+
+#roll-view p{
+  margin: 0;
+}
+
+
 
 .science {
   background-color: green;
