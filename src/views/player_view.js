@@ -6,7 +6,7 @@ const PlayerView = function (element) {
 }
 
 PlayerView.prototype.bindEvents = function () {
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 4; i++) {
     PubSub.subscribe(`Player${i}:player-created`, (evt) => {
       this.render(evt.detail);
     });
