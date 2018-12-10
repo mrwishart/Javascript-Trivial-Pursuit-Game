@@ -7,12 +7,12 @@ const WinView = function (parentElement) {
 
 WinView.prototype.bindEvents = function () {
   PubSub.subscribe('Player:win-detected', (evt) => {
-    const winnerID = evt.detail;
-    this.render(winnerID);
+    const winnerObj = evt.detail;
+    this.render(winnerObj);
   })
 };
 
-WinView.prototype.render = function (winnerID) {
+WinView.prototype.render = function (winnerObj) {
 
   const winViewElement = document.createElement('div');
   winViewElement.id = 'win-view';
@@ -20,7 +20,7 @@ WinView.prototype.render = function (winnerID) {
   this.parentElement.appendChild(winViewElement);
 
   const congrat = document.createElement('h1');
-  congrat.textContent = `Congratulations Player ${winnerID}, you've won!`;
+  congrat.textContent = `Congratulations ${winnerObj.name}, you've won!`;
   winViewElement.appendChild(congrat);
   console.dir(congrat);
 

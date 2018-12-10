@@ -6,7 +6,7 @@ const PlayerView = function (element) {
 }
 
 PlayerView.prototype.bindEvents = function () {
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 4; i++) {
     PubSub.subscribe(`Player${i}:player-created`, (evt) => {
       this.render(evt.detail);
     });
@@ -15,17 +15,17 @@ PlayerView.prototype.bindEvents = function () {
     this.updatePie(evt.detail);
   })
   PubSub.subscribe('Game:current-player', (evt) => {
-    this.highlightPlayer(evt.detail.id);
+    this.highlightPlayer(evt.detail);
   })
 };
 
-PlayerView.prototype.highlightPlayer = function (playerID) {
+PlayerView.prototype.highlightPlayer = function (playerObject) {
   if (document.querySelector('.highlighted')) {
     const previousPlayerContainer = document.querySelector('.highlighted');
     previousPlayerContainer.classList.remove('highlighted');
   };
 
-  const playerContainer = document.querySelector(`#p${playerID}-container`);
+  const playerContainer = document.querySelector(`#p${playerObject.id}-container`);
   playerContainer.classList.add('highlighted');
 };
 
@@ -39,6 +39,7 @@ PlayerView.prototype.updatePie = function (playerObj) {
 };
 
 PlayerView.prototype.render = function (playerObj) {
+  const playerName = playerObj.name;
   const playerID = playerObj.playerID;
   const playerPie = playerObj.pie;
 
@@ -58,7 +59,7 @@ PlayerView.prototype.render = function (playerObj) {
   playerInfoDiv.classList.add('player-info-div');
   playerDiv.appendChild(playerInfoDiv)
   const playerNamePara = document.createElement('p');
-  playerNamePara.textContent = `Player ${playerID}`;
+  playerNamePara.textContent = playerName;
   playerInfoDiv.appendChild(playerNamePara);
 };
 
