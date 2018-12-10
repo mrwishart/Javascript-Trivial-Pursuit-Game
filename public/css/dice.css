@@ -1,0 +1,35 @@
+#dice-result {
+  display: inline-grid;
+  width: 75px;
+  height: 75px;
+  margin-left: 80px;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+}
+
+.dice-button {
+  border-radius: 8000px;
+  margin: 7.5px;
+  background-color: yellow;
+  width: 10px;
+  height: 10px;
+}
+
+.dice-dot-1, .dice-dot-2, .dice-dot-3, .dice-dot-4, .dice-dot-5, .dice-dot-6, .dice-dot-7, .dice-dot-8, .dice-dot-9 {
+  width: 25px;
+  height: 25px;
+  min-height: 25px;
+  min-width: 25px;
+}
+
+.dice-dot-1, .dice-dot-2, .dice-dot-4, .dice-dot-5, .dice-dot-7, .dice-dot-8 {
+  display: inline;
+}
+
+.dice-dot-3, .dice-dot-6, .dice-dot-9 {
+  display: block;
+}
