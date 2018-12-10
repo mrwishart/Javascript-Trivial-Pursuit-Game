@@ -14,6 +14,19 @@ PlayerView.prototype.bindEvents = function () {
   PubSub.subscribe('Player:new-position', (evt) => {
     this.updatePie(evt.detail);
   })
+  PubSub.subscribe('Game:current-player', (evt) => {
+    this.highlightPlayer(evt.detail);
+  })
+};
+
+PlayerView.prototype.highlightPlayer = function (playerID) {
+  if (document.querySelector('.highlighted')) {
+    const previousPlayerContainer = document.querySelector('.highlighted');
+    previousPlayerContainer.classList.remove('highlighted');
+  };
+
+  const playerContainer = document.querySelector(`#p${playerID}-container`);
+  playerContainer.classList.add('highlighted');
 };
 
 PlayerView.prototype.updatePie = function (playerObj) {
