@@ -13,8 +13,15 @@ WinView.prototype.bindEvents = function () {
 };
 
 WinView.prototype.render = function (winnerID) {
+  const parentHeight = this.parentElement.offsetHeight;
+  const parentWidth = this.parentElement.offsetWidth;
+
   const winViewElement = document.createElement('div');
   winViewElement.id = 'win-view';
+  winViewElement.style.top = `${parentHeight*0.1}px`
+  winViewElement.style.left = `${parentWidth*0.1}px`
+  winViewElement.style.height = `${parentHeight*0.8}px`
+  winViewElement.style.width = `${parentWidth*0.8}px`
   this.parentElement.appendChild(winViewElement);
 
   const congrat = document.createElement('h1');
