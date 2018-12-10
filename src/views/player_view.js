@@ -15,7 +15,7 @@ PlayerView.prototype.bindEvents = function () {
     this.updatePie(evt.detail);
   })
   PubSub.subscribe('Game:current-player', (evt) => {
-    this.highlightPlayer(evt.detail);
+    this.highlightPlayer(evt.detail.id);
   })
 };
 

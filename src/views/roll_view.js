@@ -6,8 +6,8 @@ const RollView = function (rollContainer) {
 
 RollView.prototype.bindEvents = function () {
   PubSub.subscribe('Game:current-player', (evt) => {
-    const playerId = evt.detail;
-    this.render(playerId)
+    const player = evt.detail;
+    this.render(player)
   })
 
   PubSub.subscribe('Player:roll-result', (evt) => {
@@ -19,12 +19,12 @@ RollView.prototype.bindEvents = function () {
   });
 };
 
-RollView.prototype.render = function (playerId) {
+RollView.prototype.render = function (player) {
 
   this.rollContainer.innerHTML = '';
 
   const instruction = document.createElement('p');
-  instruction.textContent = `Player ${playerId}, it's your turn!`;
+  instruction.textContent = `${player.name}, it's your turn!`;
   this.rollContainer.appendChild(instruction);
 
   const rollButton = document.createElement('button');
@@ -32,7 +32,7 @@ RollView.prototype.render = function (playerId) {
   this.rollContainer.appendChild(rollButton);
 
   rollButton.addEventListener('click', (evt) => {
-    PubSub.publish('RollView:dice-clicked', playerId);
+    PubSub.publish('RollView:dice-clicked', player.id);
     rollButton.disabled = true;
   });
 }
