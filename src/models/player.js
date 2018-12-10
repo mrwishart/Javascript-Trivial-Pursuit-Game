@@ -21,6 +21,10 @@ Player.prototype.bindEvents = function () {
     const category = event.detail;
     this.getPie(category);
   })
+  PubSub.publish(`Player${this.playerID}:player-created`, {
+    playerID: this.playerID,
+    pie: this.pie
+  });
 };
 
 Player.prototype.move = function (diceroll) {
