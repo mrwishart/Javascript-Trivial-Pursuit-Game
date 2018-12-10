@@ -6,9 +6,15 @@ const BoardView = require('./views/board_view.js');
 const Question = require('./models/question.js');
 const QuestionView = require('./views/question_view.js');
 const WinView = require('./views/win_view.js');
+const IntroView = require('./views/intro_view.js');
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Javascript loaded");
+
+  const boardElement = document.querySelector('.board-container');
+
+  const introView = new IntroView(boardElement);
+  introView.bindEvents();
 
   const rollContainer = document.querySelector('#roll-view');
   const rollView = new RollView(rollContainer);
@@ -25,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const question = new Question();
   question.bindEvents();
 
-  const boardElement = document.querySelector('.board-container');
   const boardView = new BoardView(boardElement);
   boardView.bindEvents();
   boardView.setupStartPositions();
