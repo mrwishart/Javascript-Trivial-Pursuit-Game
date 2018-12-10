@@ -27,6 +27,7 @@ Player.prototype.bindEvents = function () {
     console.log(this.name);
   })
   PubSub.publish(`Player${this.playerID}:player-created`, {
+    name: this.name,
     playerID: this.playerID,
     pie: this.pie
   });
@@ -62,7 +63,11 @@ Player.prototype.getPie = function (category) {
   });
 
   if (this.checkWin()) {
-    PubSub.publish('Player:win-detected', this.playerID);
+    const playerObject = {
+      id: this.playerID,
+      name: this.name
+    };
+    PubSub.publish('Player:win-detected', playerObject);
   };
 };
 
