@@ -31,6 +31,28 @@
   margin: 0;
 }
 
+#key-view ul {
+  margin: 0;
+
+}
+
+
+ul li{
+  list-style: none;
+}
+
+ul li::before{
+  content: "\25A3";
+  font-size: 27px;
+}
+
+h6{
+  margin: 0;
+  color: black;
+  display: inline;
+  font-size: larger;
+}
+
 #roll-view p{
   margin: 0;
 }
@@ -127,4 +149,29 @@
 
 .selected-answer {
   background-color: red;
+}
+
+
+.purple-key {
+  color: purple;
+}
+
+.green-key {
+  color: green;
+}
+
+.yellow-key {
+  color: yellow;
+}
+
+.orange-key {
+  color: orange;
+}
+
+.blue-key {
+  color: blue;
+}
+
+.brown-key {
+  color: brown;
 }
