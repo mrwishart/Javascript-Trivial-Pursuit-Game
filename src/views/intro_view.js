@@ -23,6 +23,7 @@ IntroView.prototype.createIntroForm = function () {
   introViewElement.appendChild(playerEntryForm);
 
   playerEntryForm.addEventListener('submit', (event) => {
+    event.preventDefault()
     PubSub.publish('IntroForm:player-details-entered', event.target.value)
   })
 
