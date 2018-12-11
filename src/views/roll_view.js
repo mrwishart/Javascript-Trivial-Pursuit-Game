@@ -15,7 +15,7 @@ RollView.prototype.bindEvents = function () {
   })
 
   PubSub.subscribe('Player:roll-result', (evt) => {
-    this.diceElement.render(evt.detail);
+    this.diceElement.render(evt.detail.diceroll);
     // const numRolled = evt.detail;
     // const numRolledElement = document.createElement('p');
     // numRolledElement.id = "roll-result";
@@ -60,7 +60,6 @@ RollView.prototype.render = function (player) {
 
   rollButton.addEventListener('click', (evt) => {
     if (this.diceElement.active) {
-    console.log(player);
     PubSub.publish('RollView:dice-clicked', this.currentPlayer.id);
     // rollButton.disabled = true;
     this.diceElement.active = false;

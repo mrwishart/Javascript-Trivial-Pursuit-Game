@@ -7,6 +7,7 @@ const BoardView = require('./views/board_view.js');
 const Question = require('./models/question.js');
 const QuestionView = require('./views/question_view.js');
 const WinView = require('./views/win_view.js');
+const MoveView = require('./views/move_view.js');
 const IntroView = require('./views/intro_view.js');
 const PlayerView = require('./views/player_view.js');
 
@@ -46,7 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const winView = new WinView(boardElement);
   winView.bindEvents();
 
-
+  const moveView = new MoveView();
+  moveView.bindEvents();
 
   const game = new Game(boardView, playerView);
   game.bindEvents();
