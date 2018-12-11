@@ -15,45 +15,6 @@ IntroView.prototype.createIntroForm = function () {
   this.parentElement.appendChild(this.introElement);
   const playerEntryForm = document.createElement('form');
   this.addSubmit(playerEntryForm);
-<<<<<<< HEAD
-
-  this.introElement.appendChild(playerEntryForm);
-
-  playerEntryForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    const firstPlayerName = document.getElementById('1').value
-    const secondPlayerName = document.getElementById('2').value
-    const playerNames = {
-      1: firstPlayerName,
-      2: secondPlayerName}
-
-    PubSub.publish('IntroForm:player-details-entered', playerNames);
-    this.introElement.parentNode.removeChild(this.introElement);
-  })
-};
-
-IntroView.prototype.addPlayerEntry = function (player, form) {
-  const label = document.createElement('label')
-  label.textContent = `Player ${player}, enter your name:`
-  form.appendChild(label);
-
-  const entry = document.createElement('input')
-  entry.setAttribute('type', 'text')
-  entry.id = player
-  entry.setAttribute('name', `${player}`)
-  entry.setAttribute('value', `Player ${player}`)
-  form.appendChild(entry)
-};
-
-IntroView.prototype.addSubmit = function (form) {
-  const introSubmit = document.createElement('input');
-  introSubmit.setAttribute('type', 'submit');
-  introSubmit.setAttribute('value', 'Start Game');
-  form.appendChild(introSubmit);
-};
-
-module.exports = IntroView;
-=======
   this.addLineBreak(playerEntryForm);
   const numberSelect = this.addPlayerNumberSelect(playerEntryForm);
   console.log(numberSelect);
@@ -145,6 +106,7 @@ module.exports = IntroView;
     const entry = document.createElement('input')
     entry.setAttribute('type', 'text')
     entry.id = `name${player}`;
+    entry.maxLength = 12;
     entry.setAttribute('name', `name`)
     entry.setAttribute('value', `Player ${player}`)
     div.appendChild(entry)
@@ -166,4 +128,4 @@ module.exports = IntroView;
 
 
   module.exports = IntroView;
->>>>>>> develop
+// >>>>>>> develop

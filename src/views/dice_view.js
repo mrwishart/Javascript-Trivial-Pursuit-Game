@@ -10,12 +10,7 @@ const DiceView = function (element) {
   }
 };
 
-<<<<<<< HEAD
-DiceView.prototype.render = function () {
-  this.clearDots();
 
-  const diceArray = this.numberToDice[event.detail];
-=======
 DiceView.prototype.render = function (diceroll) {
 
   // PubSub.subscribe('Player:roll-result', (event) => {
@@ -23,7 +18,6 @@ DiceView.prototype.render = function (diceroll) {
     this.clearDots();
 
     const diceArray = this.numberToDice[diceroll];
->>>>>>> develop
 
   diceArray.forEach((dicePosition) => {
     const dotPosition = document.querySelector(`.dice-dot-${dicePosition}`);
