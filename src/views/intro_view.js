@@ -5,7 +5,6 @@ const IntroView = function (parentElement) {
   this.introElement = null;
 }
 
-
 IntroView.prototype.bindEvents = function () {
   this.createIntroForm();
 };

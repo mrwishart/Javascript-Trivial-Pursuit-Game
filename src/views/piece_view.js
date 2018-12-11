@@ -2,7 +2,7 @@ const PieceView = function (playerId, htmlPosition, pie) {
   this.playerId = playerId;
   this.parentElement = htmlPosition;
   this.pie = pie;
-}
+};
 
 PieceView.prototype.render = function () {
   const piece = document.createElement('div');
@@ -33,17 +33,3 @@ PieceView.prototype.render = function () {
 };
 
 module.exports = PieceView;
-
-/*
-initialisers
-this.playerID
-this.pie
-
-render
-create image from 2 instance Variables.
-
-end
-
-
-
-*/

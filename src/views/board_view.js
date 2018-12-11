@@ -8,7 +8,7 @@ const BoardView = function (element) {
   this.newPosition;
   this.playerNumber = 0;
   this.direction;
-}
+};
 
 BoardView.prototype.bindEvents = function () {
   PubSub.subscribe('Player:new-position', (evt) => {
@@ -27,16 +27,13 @@ BoardView.prototype.bindEvents = function () {
   PubSub.subscribe("BoardView:Animation-helper", (evt) => {
     const playerId = evt.detail.playerID;
     const pie = evt.detail.pie;
-
     this.render(playerId, this.oldPosition, pie);
   })
   this.colourInBoard();
-
   PubSub.subscribe('Player:new-player', (event) => {
     this.playerNumber += 1;
   })
 };
-
 
 BoardView.prototype.render = function (playerId, position, pie) {
   const oldPiece = document.querySelector(`#player-${playerId}-piece`);
@@ -71,7 +68,6 @@ BoardView.prototype.colourInBoard = function () {
     const space = document.querySelector(`#box${key}`);
     space.classList.add(`${board.boardSpaces[key].category}`)
   }
-
 };
 
 BoardView.prototype.setStartingPositions = function (numberOfPlayers) {
@@ -89,31 +85,3 @@ BoardView.prototype.setStartingPositions = function (numberOfPlayers) {
 };
 
 module.exports = BoardView;
-
-/*
-require pieceView
-
-this.element = HTMLelement,
-
-bindEvents
-setupStartPositions()
-
-SUB Player:new-position, (playerID, pie, newPosition)
--remove old div
--render(playerID, pie, newPosition)
-
-end
-
-render(playerID, pie, newPosition)
-create new pieceView object (playerID, pie)
-new pieceView.render (pieceView's render function)
-append to newPosition
-
-end
-
-setupStartPositions()
-const emptyPiece = {categoryName: false,  ......}
-render(1, emptyPiece, 0)
-render(2, emptyPiece, 0)
-end
-*/

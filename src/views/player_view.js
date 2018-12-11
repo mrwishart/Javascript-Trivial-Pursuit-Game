@@ -3,7 +3,7 @@ const PieceView = require('../views/piece_view.js');
 
 const PlayerView = function (element) {
   this.element = element;
-}
+};
 
 PlayerView.prototype.bindEvents = function () {
   for (let i = 1; i <= 4; i++) {
