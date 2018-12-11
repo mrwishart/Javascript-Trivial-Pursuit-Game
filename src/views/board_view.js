@@ -72,10 +72,12 @@ BoardView.prototype.setStartingPositions = function (numberOfPlayers) {
   const nearlyDonePiece = {'science': true, 'entertainment': true, 'geography': true}
   const startingPosition = document.querySelector('#box0');
   const startingPosition2 = document.querySelector('#box1');
-  const pieceOne = new PieceView(1, startingPosition, emptyPiece);
-  const pieceTwo = new PieceView(2, startingPosition, emptyPiece);
-  pieceOne.render();
-  pieceTwo.render();
+
+  for (let i = 1; i <= numberOfPlayers; i++) {
+    const piece = new PieceView(i, startingPosition, emptyPiece)
+    piece.render();
+  }
+
 };
 
 module.exports = BoardView;

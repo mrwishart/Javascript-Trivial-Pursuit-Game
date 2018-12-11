@@ -1,4 +1,4 @@
-#player-1-piece, #player-2-piece {
+#player-1-piece, #player-2-piece, #player-3-piece, #player-4-piece {
   height: 70%;
   width: 70%;
   display: flex;
@@ -13,6 +13,14 @@
 
 #player-2-piece {
   background-color: white;
+}
+
+#player-3-piece {
+  background-color: red;
+}
+
+#player-4-piece {
+  background-color: salmon;
 }
 
 .empty-slot {

@@ -35,7 +35,6 @@ Game.prototype.bindEvents = function () {
       this.players.push({id: playerID, name: playerObject[playerID]})
     }
     this.board.setStartingPositions(this.players.length);
-    console.log("THIS PSLAYERS", this.players);
     this.nextMove();
   })
 
