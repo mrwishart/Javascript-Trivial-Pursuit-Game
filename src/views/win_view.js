@@ -2,8 +2,7 @@ const PubSub = require('../helpers/pub_sub.js')
 
 const WinView = function (parentElement) {
   this.parentElement = parentElement;
-}
-
+};
 
 WinView.prototype.bindEvents = function () {
   PubSub.subscribe('Player:win-detected', (evt) => {
@@ -30,8 +29,6 @@ WinView.prototype.render = function (winnerObj) {
   restartSubmit.setAttribute('type', 'submit');
   restartSubmit.setAttribute('value', 'RESTART');
   restartForm.appendChild(restartSubmit);
-
 };
-
 
 module.exports = WinView;

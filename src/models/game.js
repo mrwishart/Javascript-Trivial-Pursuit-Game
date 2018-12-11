@@ -1,18 +1,3 @@
-/*
-this.currentPlayer
-
-bindEvents = Sub to Question, question result - boolean and correct answer
-passTurn if boolean false, Pub to Game:player-ready.
-
-At start of game, this should Pub to Game:player-ready with player1 as default.
-
-
-passTurn - switches current player to the next.
-Something like...
-{1: 2,
-2: 1}
-
-*/
 const Player = require('./player.js');
 const PubSub = require('../helpers/pub_sub.js');
 
@@ -44,7 +29,6 @@ Game.prototype.bindEvents = function () {
     if (!answerCorrect) {this.passTurn()};
     this.nextMove();
   });
-
 };
 
 Game.prototype.passTurn = function () {
