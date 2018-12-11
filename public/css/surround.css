@@ -29,8 +29,8 @@ body {
 }
 
 #player-view h6 {
-  margin: 75% 0px 0px 0px;
   font-size: 8px;
+  padding: 0px 15px;
 }
 
 .player-container {

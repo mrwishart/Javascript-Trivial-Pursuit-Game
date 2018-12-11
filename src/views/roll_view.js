@@ -50,8 +50,13 @@ RollView.prototype.render = function (player) {
 
   const rollButton = document.getElementById('dice-result');
 
+  const rollInstruction = document.querySelector(".roll-click-text");
+  rollInstruction.style.display = 'inherit';
+
   rollButton.addEventListener('click', (evt) => {
     if (this.diceElement.active) {
+      const rollInstruction = document.querySelector(".roll-click-text");
+      rollInstruction.style.display = 'none';
       PubSub.publish('RollView:dice-clicked', this.currentPlayer.id);
       // rollButton.disabled = true;
       this.diceElement.active = false;
