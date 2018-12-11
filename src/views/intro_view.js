@@ -2,8 +2,6 @@ const PubSub = require('../helpers/pub_sub.js')
 
 const IntroView = function (parentElement) {
   this.parentElement = parentElement;
-  this.player1 = null;
-  this.player2 = null;
   this.introElement = null;
 }
 
@@ -42,7 +40,6 @@ IntroView.prototype.createIntroForm = function () {
       this.addLineBreak(playerEntryForm);
       this.addLineBreak(playerEntryForm);
       this.addPlayerEntry('4', playerEntryForm);
-      this.addLineBreak(playerEntryForm);
     }
   }),
 
@@ -52,15 +49,24 @@ IntroView.prototype.createIntroForm = function () {
     event.preventDefault()
     const firstPlayerName = document.getElementById('1').value
     const secondPlayerName = document.getElementById('2').value
+    const thirdPlayerName = document.getElementById('3').value
+    const fourthPlayerName = document.getElementById('4').value
     const playerNames = {
       1: firstPlayerName,
-      2: secondPlayerName}
+      2: secondPlayerName,
+      3: thirdPlayerName,
+      4: fourthPlayerName}
 
       PubSub.publish('IntroForm:player-details-entered', playerNames);
 
       this.introElement.parentNode.removeChild(this.introElement);
 
     })
+
+  };
+
+
+  IntroView.prototype.methodName = function () {
 
   };
 
@@ -71,14 +77,18 @@ IntroView.prototype.createIntroForm = function () {
     const numberSelect = document.createElement('select')
     const twoPlayers = document.createElement('option')
     twoPlayers.textContent = "Two Players"
+    twoPlayers.value = 2
+    twoPlayers.id = 2
     numberSelect.appendChild(twoPlayers)
     const threePlayers = document.createElement('option')
     threePlayers.textContent = "Three Players"
     threePlayers.value = 3
+    threePlayers.id = 3
     numberSelect.appendChild(threePlayers)
     const fourPlayers = document.createElement('option')
     fourPlayers.textContent = "Four Players"
     fourPlayers.value = 4
+    fourPlayers.id = 4
     numberSelect.appendChild(fourPlayers)
     form.appendChild(numberSelect)
   };
