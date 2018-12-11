@@ -20,6 +20,10 @@
   min-height: 160px;
 }
 
+#win-view h1 {
+  text-align: center;
+}
+
 #win-view form input[type=submit]{
   position: absolute;
   left: 30%;
