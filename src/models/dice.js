@@ -12,7 +12,8 @@ Dice.prototype.bindEvents = function () {
 };
 
 Dice.prototype.roll = function () {
-  return Math.ceil(Math.random() * 6)
+  diceValues = 6;
+  return Math.ceil(Math.random() * diceValues)
 };
 
 module.exports = Dice;

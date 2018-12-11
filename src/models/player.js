@@ -69,7 +69,8 @@ Player.prototype.getPie = function (category) {
 };
 
 Player.prototype.checkWin = function () {
-  return Object.keys(this.pie).length >= 4;
+  winningPiePieceAmount = 4;
+  return Object.keys(this.pie).length >= winningPiePieceAmount;
 };
 
 module.exports = Player;

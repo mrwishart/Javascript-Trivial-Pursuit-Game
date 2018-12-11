@@ -71,7 +71,6 @@ Question.prototype.setUpQuestion = function () {
   };
 };
 
-
 Question.prototype.randomiseAnswers = function (array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
 
