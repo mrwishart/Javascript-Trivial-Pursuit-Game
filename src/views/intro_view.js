@@ -45,6 +45,8 @@ IntroView.prototype.createIntroForm = function () {
 
 
   playerEntryForm.addEventListener('submit', (event) => {
+    const playerView = document.getElementById('player-view');
+    playerView.innerHTML = '';
     console.log("event is:", event.target);
     event.preventDefault()
     console.log(event.target);

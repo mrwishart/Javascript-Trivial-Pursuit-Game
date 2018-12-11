@@ -92,17 +92,17 @@
   margin: 0;
 }
 
-ul {
+#display-view ul {
   padding-left: 20px;
   padding-top: 13px;
 }
 
-ul li{
+#display-view ul li{
   list-style: none;
   padding: 2px;
 }
 
-ul li::before{
+#display-view ul li::before{
   content: "\2588";
   font-size: 20px;
   padding: 10px;
