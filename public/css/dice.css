@@ -2,7 +2,7 @@
   display: inline-grid;
   width: 75px;
   height: 75px;
-  margin-left: 80px;
+  margin-left: 92.5px;
   background-color: red;
   border: 1px solid black;
   border-radius: 10px;
@@ -12,9 +12,13 @@
 }
 
 .roll-instruction {
-  font-size: larger;
+  font-size: xx-large;
   text-align: center;
-  padding: 30px;
+  padding: 38px;
+}
+
+.roll-instruction-second-line {
+  font-size: medium;
 }
 
 #roll-view button {

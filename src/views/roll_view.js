@@ -28,14 +28,33 @@ RollView.prototype.render = function (player) {
 
   this.rollContainer.innerHTML = '';
 
-  const instruction = document.createElement('p');
-  instruction.classList.add('roll-instruction');
-  instruction.textContent = `${player.name}, it's your turn!`;
-  this.rollContainer.appendChild(instruction);
+  const instructionA = document.createElement('p');
+  instructionA.classList.add('roll-instruction');
+
+  const nameBold = document.createElement('strong');
+  nameBold.textContent = player.name;
+
+  const lineBreak = document.createElement('br');
+
+  const turnLine = document.createElement('div');
+  turnLine.classList.add('roll-instruction-second-line');
+  turnLine.textContent = "It is your turn!"
+
+  // const instructionC = document.createElement('p');
+  // instructionC.classList.add('roll-instruction');
+  // instructionC.textContent = "(click on dice to roll!)"
   //
   // const rollButton = document.createElement('button');
   // rollButton.textContent = 'Roll!'
   // this.rollContainer.appendChild(rollButton);
+
+  instructionA.appendChild(nameBold);
+  instructionA.appendChild(lineBreak);
+  instructionA.appendChild(turnLine);
+
+  this.rollContainer.appendChild(instructionA);
+  // this.rollContainer.appendChild(instructionB);
+  // this.rollContainer.appendChild(instructionC);
 
   const rollButton = document.getElementById('dice-result');
 
