@@ -107,6 +107,7 @@ IntroView.prototype.createIntroForm = function () {
     const entry = document.createElement('input')
     entry.setAttribute('type', 'text')
     entry.id = `name${player}`;
+    entry.maxLength = 12;
     entry.setAttribute('name', `name`)
     entry.setAttribute('value', `Player ${player}`)
     div.appendChild(entry)
