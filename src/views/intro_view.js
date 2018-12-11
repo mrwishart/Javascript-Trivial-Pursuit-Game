@@ -14,8 +14,12 @@ IntroView.prototype.createIntroForm = function () {
   this.introElement = document.createElement('div');
   this.introElement.id = 'win-view';
   this.parentElement.appendChild(this.introElement);
+
+  const title = document.createElement('h1');
+  title.textContent = 'Trivia Pie-Hunt';
+  this.introElement.appendChild(title);
+
   const playerEntryForm = document.createElement('form');
-  this.addSubmit(playerEntryForm);
   this.addLineBreak(playerEntryForm);
   const numberSelect = this.addPlayerNumberSelect(playerEntryForm);
   console.log(numberSelect);
@@ -30,7 +34,7 @@ IntroView.prototype.createIntroForm = function () {
   this.addLineBreak(playerFieldsDiv);
   this.addPlayerEntry(2, playerFieldsDiv);
   this.addLineBreak(playerFieldsDiv);
-
+  this.addSubmit(playerEntryForm);
 
   this.introElement.appendChild(playerEntryForm);
 

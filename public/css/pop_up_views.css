@@ -10,7 +10,15 @@
   border-radius: 40px;
   box-shadow: 5px 5px 15px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+#win-view form input[type=submit]{
+  position: relative;
+  left: 40%;
+  margin-top: 10%;
+
 }
