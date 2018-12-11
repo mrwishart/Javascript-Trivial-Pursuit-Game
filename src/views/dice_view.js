@@ -1,7 +1,4 @@
-// const PubSub = require('../helpers/pub_sub.js');
-
 const DiceView = function (element) {
-  // this.element = element;
   this.active = true;
   this.numberToDice = {
     1: [5],
@@ -11,30 +8,20 @@ const DiceView = function (element) {
     5: [1, 3, 5, 7, 9],
     6: [1, 3, 4, 6, 7, 9]
   }
-}
+};
 
 DiceView.prototype.render = function () {
+  this.clearDots();
 
-  // PubSub.subscribe('Player:roll-result', (event) => {
+  const diceArray = this.numberToDice[event.detail];
 
-    this.clearDots();
-
-    const diceArray = this.numberToDice[event.detail];
-
-    diceArray.forEach((dicePosition) => {
-      const dotPosition = document.querySelector(`.dice-dot-${dicePosition}`);
-      const dot = document.createElement('div');
-      dot.classList.add('dice-button');
-      dotPosition.appendChild(dot);
-    })
-
-  }
-
-  // this.element.addEventListener('click', (evt) => {
-  //   PubSub.publish('RollView:dice-clicked', player.id);
-  //   this.active = false;
-  // });
-// };
+  diceArray.forEach((dicePosition) => {
+    const dotPosition = document.querySelector(`.dice-dot-${dicePosition}`);
+    const dot = document.createElement('div');
+    dot.classList.add('dice-button');
+    dotPosition.appendChild(dot);
+  })
+};
 
 DiceView.prototype.clearDots = function () {
   for (let i = 1; i < 10; i++) {

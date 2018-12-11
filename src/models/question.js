@@ -9,7 +9,7 @@ const Question = function () {
   this.playerID;
   this.questionDifficulty = "medium";
   this.token;
-}
+};
 
 Question.prototype.bindEvents = function () {
 
@@ -28,7 +28,7 @@ Question.prototype.bindEvents = function () {
       .then(() => {return this.setUpQuestion();})
       .then((result) => {PubSub.publish("Question:question-ready", result);})
       .catch((error) => {console.error(error);})
-  })
+  });
 
   PubSub.subscribe('QuestionView:question-answered', (event) => {
     const chosenAnswer = event.detail;
@@ -38,11 +38,9 @@ Question.prototype.bindEvents = function () {
       answer: this.correctAnswer,
       answerCorrect: result
     };
-
     if (result) {
       PubSub.publish(`QuestionP${this.playerID}:answer-correct`, this.category);
     }
-
     PubSub.publish('Question:question-result', resultObject);
   })
 };
@@ -51,7 +49,7 @@ Question.prototype.getTokenFromAPI = function () {
   const url = "https://opentdb.com/api_token.php?command=request";
   const request = new RequestHelper(url);
   request.get()
-    .then((result) => {this.token = result.token;})
+  .then((result) => {this.token = result.token;})
 };
 
 Question.prototype.checkAnswer = function (chosenAnswer) {
@@ -75,7 +73,6 @@ Question.prototype.setUpQuestion = function () {
 
 
 Question.prototype.randomiseAnswers = function (array) {
-
   let currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
@@ -90,72 +87,7 @@ Question.prototype.randomiseAnswers = function (array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-
   return array;
 };
 
 module.exports = Question;
-
-/*
-
-{
-"category": "History",
-"type": "multiple",
-"difficulty": "medium",
-"question": "Which country had an &quot;Orange Revolution&quot; between 2004 and 2005?",
-"correct_answer": "Ukraine",
-"incorrect_answers": [
-"Belarus",
-"Latvia",
-"Lithuania"
-]
-}
-
-"https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple"
-
-require: RequestHelper
-
-Instance Variables:
-
-**** ALL EMPTY ON INITIALISATION. Filled through methods.
-
-question - String
-category - String
-incorrectAnswers - [Strings] (length: 3)
-correctAnswer - String
-playerID
-
-
-Methods:
-
-bindEvents
-
-  Subs to Player:question-category (playerID, categoryObject)
-    Get question from API, using category.apiCode
-    .then randomiseAnswers
-    .then publishes Question:question-ready
-    .catch
-  end
-
-  Subs to QuestionView:question-answered (chosen answer)
-
-    if checkAnswer(chosen answer):
-      Pub QuestionP${ID}:answer-correct (sends categoryname)
-    end
-
-    Pub QuestionP${ID}:question-result
-
-  end
-
-end
-
-checkAnswer(chosenAnswer)
-  returns whether chosen answer = actual answer
-end
-
-randomiseAnswers
-  array []
-  this.answers = randomised answers
-end
-
-*/

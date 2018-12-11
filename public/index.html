@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./css/board.css">
-    <link rel="stylesheet" href="./css/surround.css">
-    <link rel="stylesheet" href="./css/pop_up_views.css">
-    <link rel="stylesheet" href="./css/piece_style.css">
-    <link rel="stylesheet" href="./css/dice.css">
-    <script type="text/javascript" src="./js/bundle.js"></script>
-    <title>Trivial Pie-Suit</title>
-  </head>
-  <body>
-    <div class="board-container">
-      <div id="box0" class="board-square"></div>
-      <div id="box1" class="board-square"></div>
-      <div id="box2" class="board-square"></div>
-      <div id="box3" class="board-square"></div>
-      <div id="box4" class="board-square"></div>
-      <div id="box5" class="board-square"></div>
-      <div id="box6" class="board-square"></div>
-      <div id="box7" class="board-square"></div>
-      <div id="box8" class="board-square"></div>
-      <div id="box9" class="board-square"></div>
-      <div id="box10" class="board-square"></div>
-      <div id="box11" class="board-square"></div>
-      <div id="box12" class="board-square"></div>
-      <div id="box13" class="board-square"></div>
-      <div id="box14" class="board-square"></div>
-      <div id="box15" class="board-square"></div>
-      <div id="box23" class="board-square"></div>
-      <div id="box22" class="board-square"></div>
-      <div id="box21" class="board-square"></div>
-      <div id="box20" class="board-square"></div>
-      <div id="box19" class="board-square"></div>
-      <div id="box18" class="board-square"></div>
-      <div id="box17" class="board-square"></div>
-      <div id="box16" class="board-square"></div>
-      <div id="box24" class="board-square"></div>
-      <div id="box25" class="board-square"></div>
-      <div id="box26" class="board-square"></div>
-      <div id="box27" class="board-square"></div>
-      <div id="box28" class="board-square"></div>
-      <div id="box29" class="board-square"></div>
-      <div id="display-view">
-        <div id="left-view">
-          <div id="roll-view">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/board.css">
+  <link rel="stylesheet" href="./css/surround.css">
+  <link rel="stylesheet" href="./css/pop_up_views.css">
+  <link rel="stylesheet" href="./css/piece_style.css">
+  <link rel="stylesheet" href="./css/dice.css">
+  <script type="text/javascript" src="./js/bundle.js"></script>
+  <title>Trivial Pie-Suit</title>
+</head>
+<body>
+  <div class="board-container">
+    <div id="box0" class="board-square"></div>
+    <div id="box1" class="board-square"></div>
+    <div id="box2" class="board-square"></div>
+    <div id="box3" class="board-square"></div>
+    <div id="box4" class="board-square"></div>
+    <div id="box5" class="board-square"></div>
+    <div id="box6" class="board-square"></div>
+    <div id="box7" class="board-square"></div>
+    <div id="box8" class="board-square"></div>
+    <div id="box9" class="board-square"></div>
+    <div id="box10" class="board-square"></div>
+    <div id="box11" class="board-square"></div>
+    <div id="box12" class="board-square"></div>
+    <div id="box13" class="board-square"></div>
+    <div id="box14" class="board-square"></div>
+    <div id="box15" class="board-square"></div>
+    <div id="box23" class="board-square"></div>
+    <div id="box22" class="board-square"></div>
+    <div id="box21" class="board-square"></div>
+    <div id="box20" class="board-square"></div>
+    <div id="box19" class="board-square"></div>
+    <div id="box18" class="board-square"></div>
+    <div id="box17" class="board-square"></div>
+    <div id="box16" class="board-square"></div>
+    <div id="box24" class="board-square"></div>
+    <div id="box25" class="board-square"></div>
+    <div id="box26" class="board-square"></div>
+    <div id="box27" class="board-square"></div>
+    <div id="box28" class="board-square"></div>
+    <div id="box29" class="board-square"></div>
+
+    <div id="display-view">
+      <div id="left-view">
+        <div id="roll-view"></div>
+
+        <div id="dice-view">
+          <div id="dice-result">
+            <div class="dice-dot-1"></div>
+            <div class="dice-dot-2"></div>
+            <div class="dice-dot-3"></div>
+            <div class="dice-dot-4"></div>
+            <div class="dice-dot-5"><div class="dice-button"></div></div>
+            <div class="dice-dot-6"></div>
+            <div class="dice-dot-7"></div>
+            <div class="dice-dot-8"></div>
+            <div class="dice-dot-9"></div>
           </div>
-          <div id="dice-view">
-            <div id="dice-result">
-              <div class="dice-dot-1"></div>
-              <div class="dice-dot-2"></div>
-              <div class="dice-dot-3"></div>
-              <div class="dice-dot-4"></div>
-              <div class="dice-dot-5"><div class="dice-button"></div></div>
-              <div class="dice-dot-6"></div>
-              <div class="dice-dot-7"></div>
-              <div class="dice-dot-8"></div>
-              <div class="dice-dot-9"></div>
-            </div>
-            <h5>(click dice to roll!)
+          <h5>(click dice to roll!)
           </div>
+
           <div id="key-view">
             <ul>
               <li class="brown-key"><h6>History</h6></li>
@@ -69,17 +71,14 @@
               <li class="purple-key"><h6>General Knowledge</h6></li>
               <li class="yellow-key"><h6>Entertainment</h6></li>
             </ul>
-
           </div>
-
         </div>
-        <div id="question-view">
 
-        </div>
+        <div id="question-view"></div>
       </div>
     </div>
-    <div id = "player-view">
 
-    </div>
+    <div id = "player-view"></div>
+    
   </body>
-</html>
+  </html>

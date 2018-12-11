@@ -14,6 +14,6 @@ const PubSub = {
   unsubscribe: function (channel, callback) {
     document.removeEventListener(channel, callback);
   }
-}
+};
 
 module.exports = PubSub;

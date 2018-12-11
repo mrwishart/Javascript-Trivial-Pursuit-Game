@@ -13,10 +13,6 @@ const PlayerView = require('./views/player_view.js');
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Javascript loaded");
 
-  // const diceViewElement = document.querySelector('#dice-result');
-  // const diceView = new DiceView(diceViewElement);
-  // diceView.bindEvents();
-
   const boardElement = document.querySelector('.board-container');
 
   const introView = new IntroView(boardElement);
@@ -31,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const playerViewElement = document.querySelector('#player-view');
   const playerView = new PlayerView(playerViewElement);
-  //playerView.bindEvents();
 
   const question = new Question();
   question.bindEvents();
@@ -46,10 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const winView = new WinView(boardElement);
   winView.bindEvents();
 
-
-
   const game = new Game(boardView, playerView);
   game.bindEvents();
-
-
-})
+});

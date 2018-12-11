@@ -5,8 +5,7 @@ const IntroView = function (parentElement) {
   this.player1 = null;
   this.player2 = null;
   this.introElement = null;
-}
-
+};
 
 IntroView.prototype.bindEvents = function () {
   this.createIntroForm();
@@ -32,13 +31,9 @@ IntroView.prototype.createIntroForm = function () {
       2: secondPlayerName}
 
     PubSub.publish('IntroForm:player-details-entered', playerNames);
-
     this.introElement.parentNode.removeChild(this.introElement);
-
   })
-
 };
-
 
 IntroView.prototype.addPlayerEntry = function (player, form) {
   const label = document.createElement('label')
@@ -59,9 +54,5 @@ IntroView.prototype.addSubmit = function (form) {
   introSubmit.setAttribute('value', 'Start Game');
   form.appendChild(introSubmit);
 };
-
-
-
-
 
 module.exports = IntroView;
