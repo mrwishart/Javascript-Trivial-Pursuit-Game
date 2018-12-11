@@ -23,10 +23,10 @@
 
 .dice-button {
   border-radius: 8000px;
-  margin: 7.5px;
+  margin: 6px;
   background-color: yellow;
-  width: 10px;
-  height: 10px;
+  width: 13px;
+  height: 13px;
 }
 
 .dice-dot-1, .dice-dot-2, .dice-dot-3, .dice-dot-4, .dice-dot-5, .dice-dot-6, .dice-dot-7, .dice-dot-8, .dice-dot-9 {
