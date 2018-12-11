@@ -13,13 +13,13 @@ const DiceView = function (element) {
   }
 }
 
-DiceView.prototype.render = function () {
+DiceView.prototype.render = function (diceroll) {
 
   // PubSub.subscribe('Player:roll-result', (event) => {
 
     this.clearDots();
 
-    const diceArray = this.numberToDice[event.detail];
+    const diceArray = this.numberToDice[diceroll];
 
     diceArray.forEach((dicePosition) => {
       const dotPosition = document.querySelector(`.dice-dot-${dicePosition}`);

@@ -7,6 +7,7 @@ const BoardView = function (element) {
   this.oldPosition;
   this.newPosition;
   this.playerNumber = 0;
+  this.direction;
 }
 
 BoardView.prototype.bindEvents = function () {
@@ -16,6 +17,7 @@ BoardView.prototype.bindEvents = function () {
 
     this.newPosition = evt.detail.position;
     this.oldPosition = evt.detail.oldPosition;
+    this.direction = evt.detail.animHelper;
 
     if (this.oldPosition === undefined) {this.oldPosition = this.newPosition};
 
@@ -43,9 +45,15 @@ BoardView.prototype.render = function (playerId, position, pie) {
 
   const pieceView = new PieceView(playerId, htmlPosition, pie);
   pieceView.render();
+
+  const board = new Board();
+  const noOfSquares = Object.keys(board.boardSpaces).length;
+
   if (position !== this.newPosition) {
-    this.oldPosition++;
+    this.oldPosition += this.direction;
     this.oldPosition %= 30;
+    if (this.oldPosition < 0) {this.oldPosition += noOfSquares}
+
     window.setTimeout(function () {
       PubSub.publish("BoardView:Animation-helper", {
         playerID: playerId,

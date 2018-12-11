@@ -14,12 +14,41 @@
 
 }
 
+#move-view-cover {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 99;
+  background-color: black;
+}
+
+.pulsating-box {
+  animation-name: pulse;
+  animation-duration: 400ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+  z-index: 100;
+}
+
+@keyframes pulse {
+  form {background-color: inherit;}
+  to {background-color: #f0f0f0;}
+}
+
 #left-view, #question-view {
   height:100%;
   width: 50%;
   max-width: 50%;
   display: inline-block;
   margin: 0;
+}
+
+#question-view {
+  z-index: 0;
 }
 
 #question-view p {
@@ -91,30 +120,55 @@ h6{
 }
 
 
-
 .science {
   background-color: green;
+}
+
+.science-key {
+  color: green;
 }
 
 .history {
   background-color: brown;
 }
 
+.history-key {
+  color: brown;
+}
+
 .entertainment {
   background-color: yellow;
+}
+
+.entertainment-key {
+  color: yellow;
 }
 
 .general-knowledge {
   background-color: purple;
 }
 
+.general-knowledge-key {
+  color: purple;
+}
+
 .geography {
   background-color: blue;
+}
+
+.geography-key {
+  color: blue;
 }
 
 .sports {
   background-color: orange;
 }
+
+.sports-key {
+  color: orange;
+}
+
+
 
 .board-container {
   display: inline-grid;
@@ -173,7 +227,10 @@ h6{
   grid-column-end: 9;
   grid-row-start: 2;
   grid-row-end: 8;
-  background-color: pink;
+}
+
+#display-view, .science-key, .history-key, .entertainment-key, .general-knowledge-key, .geography-key, .sports-key {
+    background-color: pink;
 }
 
 .right-answer {
@@ -182,29 +239,4 @@ h6{
 
 .selected-answer {
   background-color: red;
-}
-
-
-.purple-key {
-  color: purple;
-}
-
-.green-key {
-  color: green;
-}
-
-.yellow-key {
-  color: yellow;
-}
-
-.orange-key {
-  color: orange;
-}
-
-.blue-key {
-  color: blue;
-}
-
-.brown-key {
-  color: brown;
 }
