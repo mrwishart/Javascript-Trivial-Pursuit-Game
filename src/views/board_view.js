@@ -66,7 +66,7 @@ BoardView.prototype.colourInBoard = function () {
 
 };
 
-BoardView.prototype.setStartingPositions = function () {
+BoardView.prototype.setStartingPositions = function (numberOfPlayers) {
   // Render empty pieces on the starting square.
   const emptyPiece = {};
   const nearlyDonePiece = {'science': true, 'entertainment': true, 'geography': true}
