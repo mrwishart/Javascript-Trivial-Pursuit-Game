@@ -45,6 +45,11 @@
   margin: 0;
 }
 
+#dice-view h5 {
+  margin: 0px;
+  text-align: center;
+}
+
 #roll-view, #dice-view {
   height:25%;
   width: 100%;

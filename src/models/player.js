@@ -16,7 +16,7 @@ Player.prototype.bindEvents = function () {
     const categoryObject = this.getCategoryObject();
     categoryObject['playerID'] = this.playerID;
     PubSub.publish('Player:question-category', categoryObject);
-  })
+  });
 
   PubSub.subscribe(`QuestionP${this.playerID}:answer-correct`, (event) => {
     const category = event.detail;

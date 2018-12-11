@@ -2,7 +2,7 @@
   display: inline-grid;
   width: 75px;
   height: 75px;
-  margin-left: 80px;
+  margin-left: 92.5px;
   background-color: red;
   border: 1px solid black;
   border-radius: 10px;
@@ -12,9 +12,13 @@
 }
 
 .roll-instruction {
-  font-size: larger;
+  font-size: xx-large;
   text-align: center;
-  padding: 30px;
+  padding: 38px;
+}
+
+.roll-instruction-second-line {
+  font-size: medium;
 }
 
 #roll-view button {
@@ -23,10 +27,10 @@
 
 .dice-button {
   border-radius: 8000px;
-  margin: 7.5px;
+  margin: 6px;
   background-color: yellow;
-  width: 10px;
-  height: 10px;
+  width: 13px;
+  height: 13px;
 }
 
 .dice-dot-1, .dice-dot-2, .dice-dot-3, .dice-dot-4, .dice-dot-5, .dice-dot-6, .dice-dot-7, .dice-dot-8, .dice-dot-9 {
