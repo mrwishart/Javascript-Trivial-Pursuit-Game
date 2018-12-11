@@ -9,6 +9,8 @@ const MoveView = function () {
  this.cover;
  this.diceroll;
  this.playerID;
+ this.firstKey;
+ this.secondKey;
 }
 
 MoveView.prototype.bindEvents = function () {
@@ -24,12 +26,21 @@ MoveView.prototype.bindEvents = function () {
 
     this.forwardSquare = document.getElementById(`box${rollForwards}`);
     // forwardSquare.style.zIndex = "100";
+    console.log(this.forwardSquare.classList[1]);
     this.forwardSquare.classList.add("pulsating-box");
     this.backwardSquare = document.getElementById(`box${rollBackwards}`);
     // backwardSquare.style.zIndex = "100";
     this.backwardSquare.classList.add("pulsating-box");
     // const rollView = document.getElementById('display-view');
     // rollView.style.zIndex = "100";
+    const categoryOne = this.forwardSquare.classList[1];
+    const categoryTwo = this.backwardSquare.classList[1];
+
+    this.firstKey = document.querySelector(`.${categoryOne}-key`);
+    this.secondKey = document.querySelector(`.${categoryTwo}-key`);
+
+    this.firstKey.classList.add("pulsating-box");
+    this.secondKey.classList.add("pulsating-box");
 
     const docBody = document.querySelector('html')
     this.cover = document.createElement('div');
@@ -42,6 +53,8 @@ MoveView.prototype.bindEvents = function () {
     if (evt.target.classList.contains("pulsating-box")) {
       this.forwardSquare.classList.remove("pulsating-box");
       this.backwardSquare.classList.remove("pulsating-box");
+      this.firstKey.classList.remove("pulsating-box");
+      this.secondKey.classList.remove("pulsating-box");
       this.cover.parentNode.removeChild(this.cover);
 
       if (evt.target === this.backwardSquare) {this.diceroll *= -1};

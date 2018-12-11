@@ -120,30 +120,55 @@ h6{
 }
 
 
-
 .science {
   background-color: green;
+}
+
+.science-key {
+  color: green;
 }
 
 .history {
   background-color: brown;
 }
 
+.history-key {
+  color: brown;
+}
+
 .entertainment {
   background-color: yellow;
+}
+
+.entertainment-key {
+  color: yellow;
 }
 
 .general-knowledge {
   background-color: purple;
 }
 
+.general-knowledge-key {
+  color: purple;
+}
+
 .geography {
   background-color: blue;
+}
+
+.geography-key {
+  color: blue;
 }
 
 .sports {
   background-color: orange;
 }
+
+.sports-key {
+  color: orange;
+}
+
+
 
 .board-container {
   display: inline-grid;
@@ -202,7 +227,10 @@ h6{
   grid-column-end: 9;
   grid-row-start: 2;
   grid-row-end: 8;
-  background-color: pink;
+}
+
+#display-view, .science-key, .history-key, .entertainment-key, .general-knowledge-key, .geography-key, .sports-key {
+    background-color: pink;
 }
 
 .right-answer {
@@ -211,29 +239,4 @@ h6{
 
 .selected-answer {
   background-color: red;
-}
-
-
-.purple-key {
-  color: purple;
-}
-
-.green-key {
-  color: green;
-}
-
-.yellow-key {
-  color: yellow;
-}
-
-.orange-key {
-  color: orange;
-}
-
-.blue-key {
-  color: blue;
-}
-
-.brown-key {
-  color: brown;
 }
