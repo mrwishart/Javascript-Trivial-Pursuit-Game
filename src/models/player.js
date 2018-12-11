@@ -22,10 +22,7 @@ Player.prototype.bindEvents = function () {
     const category = event.detail;
     this.getPie(category);
   })
-  PubSub.subscribe(`IntroForm:player${this.playerID}-details-entered`, (event) => {
-    this.name = event.detail;
-    console.log(this.name);
-  })
+
   PubSub.publish(`Player${this.playerID}:player-created`, {
     name: this.name,
     playerID: this.playerID,
