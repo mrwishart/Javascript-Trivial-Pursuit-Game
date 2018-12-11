@@ -34,3 +34,8 @@
 #win-view form input[type=submit]:active{
   margin-top: 14px;
 }
+
+
+#win-view form input[type=submit]:hover {
+  box-shadow: 0 12px 16px 0;
+}
