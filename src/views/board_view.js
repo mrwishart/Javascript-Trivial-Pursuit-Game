@@ -7,6 +7,7 @@ const BoardView = function (element) {
   this.oldPosition;
   this.newPosition;
   this.playerNumber = 0;
+  this.direction;
 };
 
 BoardView.prototype.bindEvents = function () {
@@ -16,6 +17,7 @@ BoardView.prototype.bindEvents = function () {
 
     this.newPosition = evt.detail.position;
     this.oldPosition = evt.detail.oldPosition;
+    this.direction = evt.detail.animHelper;
 
     if (this.oldPosition === undefined) {this.oldPosition = this.newPosition};
 
@@ -40,9 +42,15 @@ BoardView.prototype.render = function (playerId, position, pie) {
 
   const pieceView = new PieceView(playerId, htmlPosition, pie);
   pieceView.render();
+
+  const board = new Board();
+  const noOfSquares = Object.keys(board.boardSpaces).length;
+
   if (position !== this.newPosition) {
-    this.oldPosition++;
+    this.oldPosition += this.direction;
     this.oldPosition %= 30;
+    if (this.oldPosition < 0) {this.oldPosition += noOfSquares}
+
     window.setTimeout(function () {
       PubSub.publish("BoardView:Animation-helper", {
         playerID: playerId,
@@ -62,16 +70,18 @@ BoardView.prototype.colourInBoard = function () {
   }
 };
 
-BoardView.prototype.setStartingPositions = function () {
+BoardView.prototype.setStartingPositions = function (numberOfPlayers) {
   // Render empty pieces on the starting square.
   const emptyPiece = {};
   const nearlyDonePiece = {'science': true, 'entertainment': true, 'geography': true}
   const startingPosition = document.querySelector('#box0');
   const startingPosition2 = document.querySelector('#box1');
-  const pieceOne = new PieceView(1, startingPosition, emptyPiece);
-  const pieceTwo = new PieceView(2, startingPosition, emptyPiece);
-  pieceOne.render();
-  pieceTwo.render();
+
+  for (let i = 1; i <= numberOfPlayers; i++) {
+    const piece = new PieceView(i, startingPosition, emptyPiece)
+    piece.render();
+  }
+
 };
 
 module.exports = BoardView;

@@ -11,7 +11,18 @@ const Player = function (playerID, name) {
 Player.prototype.bindEvents = function () {
   PubSub.subscribe(`DiceP${this.playerID}:roll-result`, (event) => {
     const diceroll = event.detail;
-    PubSub.publish('Player:roll-result', diceroll);
+    const positionObject = {
+      diceroll: diceroll,
+      position: this.position,
+      playerID: this.playerID
+    };
+    PubSub.publish('Player:roll-result', positionObject);
+    // Need to insert new view -> let user chose which direction they want to go
+  });
+
+  PubSub.subscribe(`MoveViewP${this.playerID}:RoutePicked`, (evt) => {
+    const diceroll = event.detail;
+
     this.move(diceroll);
     const categoryObject = this.getCategoryObject();
     categoryObject['playerID'] = this.playerID;
@@ -20,11 +31,8 @@ Player.prototype.bindEvents = function () {
   PubSub.subscribe(`QuestionP${this.playerID}:answer-correct`, (event) => {
     const category = event.detail;
     this.getPie(category);
-  });
-  PubSub.subscribe(`IntroForm:player${this.playerID}-details-entered`, (event) => {
-    this.name = event.detail;
-    console.log(this.name);
-  });
+  })
+
   PubSub.publish(`Player${this.playerID}:player-created`, {
     name: this.name,
     playerID: this.playerID,
@@ -38,12 +46,16 @@ Player.prototype.move = function (diceroll) {
   const noOfSquares = Object.keys(board.boardSpaces).length;
   const oldPosition = this.position;
   this.position = (this.position + diceroll) % noOfSquares;
+  if (this.position < 0) {this.position += noOfSquares}
+
+  console.log(this.position);
 
   PubSub.publish('Player:new-position', {
     playerID: this.playerID,
     oldPosition: oldPosition,
     position: this.position,
-    pie: this.pie
+    pie: this.pie,
+    animHelper: diceroll/Math.abs(diceroll)
   });
 };
 
