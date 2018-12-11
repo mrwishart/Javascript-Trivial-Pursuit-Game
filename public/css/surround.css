@@ -1,6 +1,7 @@
 body {
   display: flex;
   justify-content: left;
+  font-family: Verdana;
 }
 
 #player-view {

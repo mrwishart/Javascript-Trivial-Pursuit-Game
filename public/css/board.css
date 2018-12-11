@@ -52,9 +52,9 @@
 }
 
 #question-view p {
-  border: 1px solid black;
   padding: 20px;
   margin: 1px;
+  text-align: center;
 }
 
 #question-view button {
@@ -113,6 +113,7 @@ h6{
   color: black;
   display: inline;
   font-size: larger;
+  font-size: 17px;
 }
 
 #roll-view p{
