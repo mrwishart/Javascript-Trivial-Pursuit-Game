@@ -48,7 +48,13 @@ Game.prototype.bindEvents = function () {
 };
 
 Game.prototype.passTurn = function () {
-  const turnOrder = {1: 2, 2: 1};
+  const turnMechanics = {
+    2: {1: 2, 2: 1 },
+    3: {1: 2, 2: 3, 3: 1 },
+    4: {1: 2, 2: 3, 3: 4, 4: 1 },
+  };
+
+  const turnOrder = turnMechanics[this.players.length]
   this.currentPlayerID = turnOrder[this.currentPlayer.id];
   this.currentPlayer = this.players[this.currentPlayerID-1];
 };
