@@ -29,6 +29,7 @@ IntroView.prototype.createIntroForm = function () {
   playerFieldsDiv.classList.add('player-fields-div');
   playerEntryForm.appendChild(playerFieldsDiv);
 
+  this.addLineBreak(playerFieldsDiv);
   this.addPlayerEntry(1, playerFieldsDiv);
   this.addLineBreak(playerFieldsDiv);
   this.addLineBreak(playerFieldsDiv);

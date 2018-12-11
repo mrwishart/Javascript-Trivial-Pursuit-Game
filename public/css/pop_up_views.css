@@ -16,9 +16,21 @@
   flex-wrap: wrap;
 }
 
-#win-view form input[type=submit]{
-  position: relative;
-  left: 40%;
-  margin-top: 10%;
+.player-fields-div {
+  min-height: 160px;
+}
 
+#win-view form input[type=submit]{
+  position: absolute;
+  left: 30%;
+  margin-top: 10px;
+  border: gold 2px solid;
+  border-radius: 10px;
+  width: 200px;
+  height: 40px;
+  font-size: 25px;
+}
+
+#win-view form input[type=submit]:active{
+  margin-top: 14px;
 }
