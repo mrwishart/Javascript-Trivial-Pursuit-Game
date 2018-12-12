@@ -10,7 +10,7 @@ const RollView = function (rollContainer) {
   this.animHelper = true;
   this.diceAudio = document.getElementById('dice-audio');
   this.diceAngle = 0;
-  this.rollButton;
+  this.rollButton = document.getElementById('dice-result');
   this.marginLeft;
 };
 
@@ -39,8 +39,7 @@ RollView.prototype.bindEvents = function () {
   this.diceAudio.addEventListener('ended', (event) => {
     this.animHelper = false;
     this.diceAngle = 0;
-    this.rollButton.style.WebkitAnimationPlayState = "paused";
-    this.rollButton.style.marginLeft = "92.5px";
+    this.rollButton.style.WebkitAnimationName = "";
     console.log(this.rollButton.style.marginLeft);
     this.rollButton.style.transform = `rotate(${this.diceAngle}deg)`;
     PubSub.publish('RollView:dice-clicked', this.currentPlayer.id);
@@ -81,8 +80,6 @@ RollView.prototype.render = function (player) {
 
       this.diceAudio.play();
 
-      this.rollButton.style.WebkitAnimationPlayState = "running";
-
       const rollInstruction = document.querySelector(".roll-click-text");
       const turnInstruction = document.querySelector(".roll-instruction-second-line");
 
@@ -104,6 +101,7 @@ RollView.prototype.rollAnimation = function () {
   console.log('run');
   const chosenAngle = 50;
   this.diceAngle += chosenAngle;
+  this.rollButton.style.WebkitAnimationName = "dicePulse";
   this.rollButton.style.transform = `rotate(${this.diceAngle}deg)`;
   window.setTimeout(this.animationHelper, 40);
 };
