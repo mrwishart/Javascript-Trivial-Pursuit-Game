@@ -39,8 +39,8 @@ MoveView.prototype.bindEvents = function () {
     this.firstKey = document.querySelector(`.${categoryOne}-key`);
     this.secondKey = document.querySelector(`.${categoryTwo}-key`);
 
-    this.firstKey.classList.add("pulsating-box");
-    this.secondKey.classList.add("pulsating-box");
+    this.firstKey.classList.add("static-box");
+    this.secondKey.classList.add("static-box");
 
     const docBody = document.querySelector('html')
     this.cover = document.createElement('div');
@@ -53,8 +53,8 @@ MoveView.prototype.bindEvents = function () {
     if (evt.target.classList.contains("pulsating-box")) {
       this.forwardSquare.classList.remove("pulsating-box");
       this.backwardSquare.classList.remove("pulsating-box");
-      this.firstKey.classList.remove("pulsating-box");
-      this.secondKey.classList.remove("pulsating-box");
+      this.firstKey.classList.remove("static-box");
+      this.secondKey.classList.remove("static-box");
       this.cover.parentNode.removeChild(this.cover);
 
       if (evt.target === this.backwardSquare) {this.diceroll *= -1};
