@@ -40,6 +40,8 @@ RollView.prototype.bindEvents = function () {
     this.animHelper = false;
     this.diceAngle = 0;
     this.rollButton.style.WebkitAnimationPlayState = "paused";
+    this.rollButton.style.marginLeft = "92.5px";
+    console.log(this.rollButton.style.marginLeft);
     this.rollButton.style.transform = `rotate(${this.diceAngle}deg)`;
     PubSub.publish('RollView:dice-clicked', this.currentPlayer.id);
   })
