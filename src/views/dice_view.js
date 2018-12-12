@@ -26,8 +26,6 @@ DiceView.prototype.render = function (diceroll) {
     dotPosition.appendChild(dot);
   })
 
-  const diceAudio = document.getElementById('dice-audio');
-  diceAudio.play();
 };
 
 DiceView.prototype.clearDots = function () {

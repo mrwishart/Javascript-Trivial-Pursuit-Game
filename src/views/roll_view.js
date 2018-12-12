@@ -1,14 +1,19 @@
 const PubSub = require('../helpers/pub_sub.js');
 const DiceView = require('./dice_view.js');
+const Dice = require('../models/dice.js');
 
 const RollView = function (rollContainer) {
   this.rollContainer = rollContainer;
   this.diceElement = new DiceView();
   this.currentPlayer;
+  this.dice = new Dice();
+  this.animHelper = true;
+  this.diceAudio = document.getElementById('dice-audio');
 };
 
 RollView.prototype.bindEvents = function () {
   PubSub.subscribe('Game:current-player', (evt) => {
+    this.animHelper = true;
     this.currentPlayer = evt.detail;
     this.render(this.currentPlayer);
     this.diceElement.active = true;
@@ -24,6 +29,15 @@ RollView.prototype.bindEvents = function () {
     // this.rollContainer.appendChild(numRolledElement);
 
   });
+  PubSub.subscribe('RollView:animation-helper', () => {
+    this.rollAnimation();
+  })
+
+  this.diceAudio.addEventListener('ended', (event) => {
+    this.animHelper = false;
+    PubSub.publish('RollView:dice-clicked', this.currentPlayer.id);
+  })
+
 };
 
 RollView.prototype.render = function (player) {
@@ -55,17 +69,34 @@ RollView.prototype.render = function (player) {
 
   rollButton.addEventListener('click', (evt) => {
     if (this.diceElement.active) {
+      this.diceElement.active = false;
+
+      this.diceAudio.play();
+
       const rollInstruction = document.querySelector(".roll-click-text");
       const turnInstruction = document.querySelector(".roll-instruction-second-line");
 
       rollInstruction.style.display = 'none';
       turnInstruction.style.display = 'none';
-      
-      PubSub.publish('RollView:dice-clicked', this.currentPlayer.id);
+
+      this.rollAnimation();
+
+
       // rollButton.disabled = true;
-      this.diceElement.active = false;
     }
   });
+};
+
+RollView.prototype.rollAnimation = function () {
+  if (!this.animHelper) {return}
+  const randomRoll = this.dice.roll();
+  this.diceElement.render(randomRoll);
+  console.log('run');
+  window.setTimeout(this.animationHelper, 40);
+};
+
+RollView.prototype.animationHelper = () => {
+  PubSub.publish('RollView:animation-helper', true)
 };
 
 module.exports = RollView;
