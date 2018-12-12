@@ -9,6 +9,18 @@
 
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto auto;
+
+  animation-name: dicePulse;
+  animation-duration: 200ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+}
+
+@keyframes dicePulse {
+  from {margin-left: 85px;}
+  to {margin-left: 100px;}
 }
 
 .roll-instruction {

@@ -39,6 +39,7 @@ RollView.prototype.bindEvents = function () {
   this.diceAudio.addEventListener('ended', (event) => {
     this.animHelper = false;
     this.diceAngle = 0;
+    this.rollButton.style.WebkitAnimationPlayState = "paused";
     this.rollButton.style.transform = `rotate(${this.diceAngle}deg)`;
     PubSub.publish('RollView:dice-clicked', this.currentPlayer.id);
   })
@@ -77,6 +78,8 @@ RollView.prototype.render = function (player) {
       this.diceElement.active = false;
 
       this.diceAudio.play();
+
+      this.rollButton.style.WebkitAnimationPlayState = "running";
 
       const rollInstruction = document.querySelector(".roll-click-text");
       const turnInstruction = document.querySelector(".roll-instruction-second-line");
