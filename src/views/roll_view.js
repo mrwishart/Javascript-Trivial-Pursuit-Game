@@ -9,6 +9,9 @@ const RollView = function (rollContainer) {
   this.dice = new Dice();
   this.animHelper = true;
   this.diceAudio = document.getElementById('dice-audio');
+  this.diceAngle = 0;
+  this.rollButton;
+  this.marginLeft;
 };
 
 RollView.prototype.bindEvents = function () {
@@ -35,6 +38,8 @@ RollView.prototype.bindEvents = function () {
 
   this.diceAudio.addEventListener('ended', (event) => {
     this.animHelper = false;
+    this.diceAngle = 0;
+    this.rollButton.style.transform = `rotate(${this.diceAngle}deg)`;
     PubSub.publish('RollView:dice-clicked', this.currentPlayer.id);
   })
 
@@ -62,12 +67,12 @@ RollView.prototype.render = function (player) {
 
   this.rollContainer.appendChild(instructionA);
 
-  const rollButton = document.getElementById('dice-result');
+  this.rollButton = document.getElementById('dice-result');
 
   const rollInstruction = document.querySelector(".roll-click-text");
   rollInstruction.style.display = 'inherit';
 
-  rollButton.addEventListener('click', (evt) => {
+  this.rollButton.addEventListener('click', (evt) => {
     if (this.diceElement.active) {
       this.diceElement.active = false;
 
@@ -92,6 +97,9 @@ RollView.prototype.rollAnimation = function () {
   const randomRoll = this.dice.roll();
   this.diceElement.render(randomRoll);
   console.log('run');
+  const chosenAngle = 50;
+  this.diceAngle += chosenAngle;
+  this.rollButton.style.transform = `rotate(${this.diceAngle}deg)`;
   window.setTimeout(this.animationHelper, 40);
 };
 
@@ -100,3 +108,5 @@ RollView.prototype.animationHelper = () => {
 };
 
 module.exports = RollView;
+
+// 32.7 degrees
