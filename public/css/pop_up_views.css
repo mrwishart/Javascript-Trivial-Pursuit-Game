@@ -20,6 +20,10 @@
   min-height: 160px;
 }
 
+#win-view h1 {
+  text-align: center;
+}
+
 #win-view form input[type=submit]{
   position: absolute;
   left: 30%;
@@ -33,4 +37,9 @@
 
 #win-view form input[type=submit]:active{
   margin-top: 14px;
+}
+
+
+#win-view form input[type=submit]:hover {
+  box-shadow: 0 12px 16px 0;
 }

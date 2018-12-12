@@ -14,7 +14,7 @@ body {
   border-radius: 5px;
   margin-left: 50px;
   flex-direction: column;
-  padding:20px 0px;
+  padding: 20px 0px;
   z-index: 100;
   text-align: center;
 }
@@ -28,9 +28,25 @@ body {
   padding: 5px 15px;
 }
 
+#player-view li {
+  font-size: 20px;
+  text-align: left;
+  padding: 5px 5px;
+  list-style: circle;
+  margin-bottom: 5px;
+}
+
+#player-view h3 {
+  font-size: 24px;
+}
+
+#player-view h4 {
+  font-size: 20px;
+}
+
 #player-view h6 {
-  margin: 75% 0px 0px 0px;
   font-size: 8px;
+  padding: 0px 15px;
 }
 
 .player-container {
@@ -43,8 +59,9 @@ body {
 }
 
 .highlighted {
-  border: 5px lime solid;
+  border: 5px gold solid;
   border-radius: 10px;
+  box-shadow: 4px 4px 10px;
 }
 
 .player-info-div {
