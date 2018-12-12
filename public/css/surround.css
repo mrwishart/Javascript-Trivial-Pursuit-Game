@@ -17,6 +17,7 @@ body {
   padding: 20px 0px;
   z-index: 100;
   text-align: center;
+  justify-content: center;
 }
 
 #player-view ul {
@@ -51,11 +52,12 @@ body {
 
 .player-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   margin: 20px auto;
   width: 80%;
   box-sizing: border-box;
+  padding-left: 10px;
 }
 
 .highlighted {
@@ -65,13 +67,13 @@ body {
 }
 
 .player-info-div {
-  margin-left: 50px
+  margin: auto;
 }
 
 .piece-info-div {
   width: 80px;
   height: 80px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
