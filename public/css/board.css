@@ -33,11 +33,15 @@
   animation-play-state: running;
   z-index: 100;
 }
+ .static-box {
+   background-color: #f0f0f0
+}
 
 @keyframes pulse {
   form {background-color: inherit;}
   to {background-color: #f0f0f0;}
 }
+
 
 #left-view, #question-view {
   height:100%;
@@ -253,7 +257,7 @@ h6{
   grid-row-end: 8;
 }
 
-#display-view, .science-key, .history-key, .entertainment-key, .general-knowledge-key, .geography-key, .sports-key {
+#display-view {
     background-color: pink;
 }
 

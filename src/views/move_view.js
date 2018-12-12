@@ -39,8 +39,8 @@ MoveView.prototype.bindEvents = function () {
     this.firstKey = document.querySelector(`.${categoryOne}-key`);
     this.secondKey = document.querySelector(`.${categoryTwo}-key`);
 
-    this.firstKey.classList.add("pulsating-box");
-    this.secondKey.classList.add("pulsating-box");
+    this.firstKey.classList.add("static-box");
+    this.secondKey.classList.add("static-box");
 
     const docBody = document.querySelector('html')
     this.cover = document.createElement('div');
