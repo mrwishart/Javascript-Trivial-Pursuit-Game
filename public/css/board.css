@@ -11,6 +11,8 @@
 #display-view {
   display: flex;
   max-width: 525px;
+  border: 1px black solid;
+  box-sizing: border-box;
 
 }
 
@@ -63,8 +65,10 @@
 #question-view p {
   padding: 20px;
   margin: 1px;
+  margin-top: 15px;
   text-align: center;
   font-weight: bold;
+  min-height: 100px;
 }
 
 #question-view button {
@@ -76,6 +80,8 @@
   font-family: verdana;
   font-size: medium;
 }
+
+
 
 #key-view{
   height:50%;
@@ -207,6 +213,7 @@ h6{
   display: inline-grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto;
   grid-template-rows: auto auto auto auto auto auto auto auto;
+  border: 1px black solid;
 }
 
 #box9, #box10, #box11, #box12, #box13, #box14, #box15 {
