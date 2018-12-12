@@ -111,6 +111,26 @@
   padding: 10px;
 }
 
+.win-state {
+  /* font-size: 50px; */
+  animation-name: pulse-text;
+  animation-duration: 250ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+  animation-timing-function: linear;
+}
+
+@keyframes pulse-text {
+  from {color: red;
+  /*font-size: 20px;
+transform: rotate(20deg);*/}
+  to {color: blue;
+  /*font-size: 60px;
+transform: rotate(-20deg);*/}
+}
+
+
 h6{
   margin: 0;
   color: black;

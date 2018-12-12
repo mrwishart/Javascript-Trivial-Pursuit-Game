@@ -56,7 +56,11 @@ RollView.prototype.render = function (player) {
   rollButton.addEventListener('click', (evt) => {
     if (this.diceElement.active) {
       const rollInstruction = document.querySelector(".roll-click-text");
+      const turnInstruction = document.querySelector(".roll-instruction-second-line");
+
       rollInstruction.style.display = 'none';
+      turnInstruction.style.display = 'none';
+      
       PubSub.publish('RollView:dice-clicked', this.currentPlayer.id);
       // rollButton.disabled = true;
       this.diceElement.active = false;
