@@ -55,6 +55,7 @@
   padding: 20px;
   margin: 1px;
   text-align: center;
+  font-weight: bold;
 }
 
 #question-view button {
@@ -63,6 +64,8 @@
   padding: 10px;
   width: calc(100% - 2px);
   text-align: center;
+  font-family: verdana;
+  font-size: medium;
 }
 
 #key-view{
