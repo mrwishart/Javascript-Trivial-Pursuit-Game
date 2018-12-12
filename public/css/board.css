@@ -25,12 +25,17 @@
   background-color: black;
 }
 
+.pulsating-key {
+  background-color: white;
+}
+
 .pulsating-box {
   animation-name: pulse;
-  animation-duration: 400ms;
+  animation-duration: 300ms;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-play-state: running;
+  animation-timing-function: cubic-bezier(0, 0, 0.3, 0.83);
   z-index: 100;
 }
  .static-box {
@@ -39,7 +44,7 @@
 
 @keyframes pulse {
   form {background-color: inherit;}
-  to {background-color: #f0f0f0;}
+  to {background-color: white;}
 }
 
 
