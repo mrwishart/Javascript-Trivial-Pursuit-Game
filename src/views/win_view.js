@@ -20,6 +20,7 @@ WinView.prototype.render = function (winnerObj) {
 
   const congrat = document.createElement('h1');
   congrat.textContent = `Congratulations ${winnerObj.name}, you've won!`;
+  congrat.classList.add('win-state');
   winViewElement.appendChild(congrat);
   console.dir(congrat);
 

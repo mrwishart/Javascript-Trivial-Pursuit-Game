@@ -1,6 +1,6 @@
 #player-1-piece, #player-2-piece, #player-3-piece, #player-4-piece {
-  height: 70%;
-  width: 70%;
+  height: 50%;
+  width: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
